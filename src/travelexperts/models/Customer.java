@@ -15,6 +15,8 @@ public class Customer {
     private String customerBusPhone;
     private String customerEmail;
     private int assignedAgentID;
+    private String customerUsername;
+    private String customerPassword;
 
     //getters and setters
     public int getCustomerID() {
@@ -89,12 +91,16 @@ public class Customer {
     public void setAssignedAgentID(int assignedAgentID) {
         this.assignedAgentID = assignedAgentID;
     }
+    public String getCustomerUsername() { return customerUsername; }
+    public void setCustomerUsername(String customerUsername) { this.customerUsername = customerUsername; }
+    public String getCustomerPassword() { return customerPassword;    }
+    public void setCustomerPassword(String customerPassword) { this.customerPassword = customerPassword; }
 
     //constructors
     public Customer(int customerID, String customerFirstName, String customerLastName,
                     String customerAddress, String customerCity, String customerProvince,
                     String customerPostalCode, String customerCountry, String customerHomePhone,
-                    String customerBusPhone, String customerEmail, int assignedAgentID) {
+                    String customerBusPhone, String customerEmail, int assignedAgentID, String customerUsername, String customerPassword) {
         this.customerID = customerID;
         this.customerFirstName = customerFirstName;
         this.customerLastName = customerLastName;
@@ -107,6 +113,8 @@ public class Customer {
         this.customerBusPhone = customerBusPhone;
         this.customerEmail = customerEmail;
         this.assignedAgentID = assignedAgentID;
+        this.customerUsername = customerUsername;
+        this.customerPassword = customerPassword;
     }
 
     public Customer() {

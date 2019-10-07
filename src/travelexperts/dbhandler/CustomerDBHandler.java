@@ -66,7 +66,9 @@ public class CustomerDBHandler {
                             resultSet.getString("CustHomePhone"),
                             resultSet.getString("CustBusPhone"),
                             resultSet.getString("CustEmail"),
-                            resultSet.getInt("AgentId"));
+                            resultSet.getInt("AgentId"),
+                            resultSet.getString("CustUsername"),
+                            resultSet.getString("CustPassword"));
                     customerList.add(cust);
                 }
             }

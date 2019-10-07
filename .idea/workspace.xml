@@ -57,8 +57,8 @@
       <list>
         <option value="Interface" />
         <option value="Enum" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -87,7 +87,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/images" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -95,6 +95,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\826747\IdeaProjects\TravelExperts-DBManager\src" />
       <recent name="C:\Users\826747\IdeaProjects\Day6Exercise\src\exercise6\main" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -103,8 +104,10 @@
       <recent name="exercise6.dbhandler" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\826747\IdeaProjects\TravelExperts-DBManager\src\images" />
       <recent name="C:\Users\826747\IdeaProjects\TravelExperts-DBManager\libs" />
       <recent name="C:\Users\826747\IdeaProjects\TravelExperts-DBManager\src\travelexperts\main" />
+      <recent name="C:\Users\826747\IdeaProjects\TravelExperts-DBManager\images" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -224,6 +227,30 @@
       <workItem from="1569253581739" duration="11247000" />
       <workItem from="1569290398038" duration="3815000" />
       <workItem from="1569294271591" duration="1849000" />
+      <workItem from="1569340542846" duration="91000" />
+      <workItem from="1569508943646" duration="649000" />
+      <workItem from="1569522159516" duration="1134000" />
+      <workItem from="1569596427742" duration="215000" />
+      <workItem from="1569596718873" duration="630000" />
+      <workItem from="1569601419573" duration="600000" />
+      <workItem from="1569778465346" duration="6000" />
+      <workItem from="1569872158247" duration="1273000" />
+      <workItem from="1569889448223" duration="8859000" />
+      <workItem from="1569943602048" duration="2811000" />
+      <workItem from="1569953159296" duration="2702000" />
+      <workItem from="1569955883131" duration="1404000" />
+      <workItem from="1569957309022" duration="622000" />
+      <workItem from="1569959489092" duration="668000" />
+      <workItem from="1570027864728" duration="802000" />
+      <workItem from="1570045297679" duration="1729000" />
+      <workItem from="1570072376887" duration="4691000" />
+      <workItem from="1570118756525" duration="2493000" />
+      <workItem from="1570220783307" duration="142000" />
+      <workItem from="1570296020448" duration="695000" />
+      <workItem from="1570309130526" duration="1347000" />
+      <workItem from="1570458009616" duration="5389000" />
+      <workItem from="1570463424561" duration="7446000" />
+      <workItem from="1570476252258" duration="2455000" />
     </task>
     <servers />
   </component>
@@ -233,5 +260,12 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="displayPane" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

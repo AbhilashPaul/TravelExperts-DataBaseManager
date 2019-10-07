@@ -1,73 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.AmbientLight?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.main.LoginController">
+<AnchorPane fx:id="rootPane" prefHeight="717.0" prefWidth="1025.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.main.LoginController">
    <children>
-      <GridPane alignment="center" hgap="10" layoutX="2.0" layoutY="-1.0" prefHeight="610.0" prefWidth="1003.0" vgap="10">
-          <padding>
-              <Insets bottom="25" left="25" right="25" top="25" />
-          </padding>
-          <Text fill="#510202" text="Login" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
-            <font>
-               <Font size="35.0" />
-            </font>
-         </Text>
-          <Label text="User Name:" GridPane.columnIndex="0" GridPane.rowIndex="1">
-            <font>
-               <Font size="14.0" />
-            </font>
-         </Label>
-          <TextField fx:id="usernameinput" GridPane.columnIndex="1" GridPane.rowIndex="1">
-            <font>
-               <Font size="14.0" />
-            </font>
-         </TextField>
-          <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2">
-            <font>
-               <Font size="14.0" />
-            </font>
-         </Label>
-          <PasswordField fx:id="passwordinput" GridPane.columnIndex="1" GridPane.rowIndex="2">
-            <font>
-               <Font size="14.0" />
-            </font>
-         </PasswordField>
-          <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                  <Button alignment="CENTER" contentDisplay="CENTER" onAction="#handleSubmitButtonAction" prefHeight="41.0" prefWidth="160.0" text="Sign in">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-          </HBox>
-         <columnConstraints>
-            <ColumnConstraints maxWidth="109.0" minWidth="78.0" prefWidth="89.0" />
-            <ColumnConstraints maxWidth="169.0" minWidth="138.0" prefWidth="158.0" />
-            <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-         </rowConstraints>
-      </GridPane>
+      <SplitPane dividerPositions="0.6330724070450098" layoutX="1.0" layoutY="2.0" prefHeight="714.0" prefWidth="1024.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="637.0" prefWidth="529.0" style="-fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="524.0" fitWidth="590.0" layoutX="31.0" layoutY="119.0" preserveRatio="true" AnchorPane.bottomAnchor="69.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="48.43902587890625" AnchorPane.topAnchor="119.0">
+                     <image>
+                        <Image url="@../../images/WorldTravel.jpg" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#0b033c" layoutX="62.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travel Experts">
+                     <font>
+                        <Font name="Century Gothic Bold" size="36.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#ff0400" layoutX="309.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your next destination awaits">
+                     <font>
+                        <Font name="Forte" size="24.0" />
+                     </font>
+                  </Text>
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="712.0" prefWidth="401.0" style="-fx-background-color: lightblue;">
+               <children>
+                  <AmbientLight color="CHARTREUSE" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="40.0">
+                     <effect>
+                        <Lighting bumpInput="$null">
+                           <light>
+                              <Light.Distant color="#eed368" />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </AmbientLight>
+                   <Text fill="#510202" layoutX="97.0" layoutY="200.0" text="Login">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                  </Text>
+                   <Label layoutX="97.0" layoutY="238.0" text="User Name">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                   <TextField fx:id="usernameinput" layoutX="97.0" layoutY="258.0" prefHeight="30.0" prefWidth="180.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                   <Label layoutX="97.0" layoutY="300.0" text="Password">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                   <PasswordField fx:id="passwordinput" layoutX="97.0" layoutY="320.0" prefHeight="30.0" prefWidth="180.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </PasswordField>
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="135.0" layoutY="374.0" onAction="#handleSubmitButtonAction" prefHeight="30.0" prefWidth="94.0" text="Sign in">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
    </children>
 </AnchorPane>

@@ -64,7 +64,7 @@ public class CustomerController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("customerdetail.fxml"));
                 try{
                     Parent root = loader.load();
-                    Scene detailsScene = new Scene(root, 700, 450);
+                    Scene detailsScene = new Scene(root, 1000, 650);
                     Stage detailsStage = new Stage();
                     detailsStage.setTitle("Customer Details");
                     detailsStage.setScene(detailsScene);

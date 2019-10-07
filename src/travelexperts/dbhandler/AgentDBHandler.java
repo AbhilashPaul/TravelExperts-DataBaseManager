@@ -100,7 +100,7 @@ public class AgentDBHandler {
     public static String Login(String usrname) {
         String password=null;
         try (Connection connection = DBConnectionManager.getDBConnection();
-             PreparedStatement statement =connection.prepareStatement("SELECT * from agents where AgtUsername =?",
+             PreparedStatement statement =connection.prepareStatement("SELECT AgtPassword from agents where AgtUsername =?",
                      ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);) {
             statement.setString(1, usrname);
             try(ResultSet resultSet =statement.executeQuery()){
@@ -113,6 +113,35 @@ public class AgentDBHandler {
             System.out.println(ex.getMessage());
         }
         return password;
+    }
+
+    //this method retrieves the agent details for a given username
+    public static Agent getAgentDetailsByUsername(String usrname) {
+        Agent agent = new Agent();
+        try (Connection connection = DBConnectionManager.getDBConnection();
+             PreparedStatement statement =connection.prepareStatement("SELECT * from agents where AgtUsername =?",
+                     ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);) {
+            statement.setString(1, usrname);
+            try(ResultSet resultSet =statement.executeQuery()){
+                if (resultSet.next()) {
+                    agent.setAgentID(resultSet.getInt("AgentId"));
+                    agent.setAgentAgencyID(resultSet.getInt("AgencyId"));
+                    agent.setAgentPosition(resultSet.getString("AgtPosition"));
+                    agent.setAgentFirstName(resultSet.getString("AgtFirstName"));
+                    agent.setAgentMidInitial(resultSet.getString("AgtMiddleInitial"));
+                    agent.setAgentLastName(resultSet.getString("AgtLastName"));
+                    agent.setAgentPhoneNumber(resultSet.getString("AgtBusPhone"));
+                    agent.setAgentEmail(resultSet.getString("AgtEmail"));
+                    agent.setAgentUsername(resultSet.getString("AgtUsername"));
+                    agent.setAgentPassword(resultSet.getString("AgtPassword"));
+                }
+            }
+        }
+        catch(SQLException ex){
+            System.out.println(ex.getMessage());
+            return null;
+        }
+        return agent;
     }
 
 }

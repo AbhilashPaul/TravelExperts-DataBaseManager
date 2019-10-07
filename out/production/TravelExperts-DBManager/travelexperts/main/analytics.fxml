@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="609.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.main.AnalyticsController">
+   <children>
+      <VBox layoutX="33.0" layoutY="42.0" prefHeight="268.0" prefWidth="566.0">
+         <children>
+            <BarChart fx:id="barChartTopDestinations" prefHeight="282.0" prefWidth="566.0" verticalGridLinesVisible="false">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" fx:id="xAxis" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="yAxis" minorTickCount="2" minorTickLength="1.0" side="LEFT" tickLength="2.0" tickUnit="1.0" upperBound="40.0" />
+              </yAxis>
+            </BarChart>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
