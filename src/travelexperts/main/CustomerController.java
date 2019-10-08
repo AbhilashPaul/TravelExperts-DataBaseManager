@@ -74,16 +74,6 @@ public class CustomerController implements Initializable {
                     detailsController.displayCustomerDetails(customerList.get((int)newValue));
                     detailsStage.showAndWait();
 
-                    //not used
-                    /*Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Customer Details");
-                    alert.setResizable(true);
-                    alert.setDialogPane(root);
-                    alert.initModality(Modality.WINDOW_MODAL);
-                    Window window = alert.getDialogPane().getScene().getWindow();
-                    window.setOnCloseRequest(event -> window.hide());
-                    alert.showAndWait();*/
-
                 }catch (Exception e){
                     e.printStackTrace();
                 }

@@ -87,7 +87,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/travelexperts" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -95,6 +95,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\826747\IdeaProjects\TravelExperts-DBManager\src\travelexperts" />
       <recent name="C:\Users\826747\IdeaProjects\TravelExperts-DBManager\src" />
       <recent name="C:\Users\826747\IdeaProjects\Day6Exercise\src\exercise6\main" />
     </key>
@@ -250,7 +251,8 @@
       <workItem from="1570309130526" duration="1347000" />
       <workItem from="1570458009616" duration="5389000" />
       <workItem from="1570463424561" duration="7446000" />
-      <workItem from="1570476252258" duration="2455000" />
+      <workItem from="1570476252258" duration="5444000" />
+      <workItem from="1570488958326" duration="5361000" />
     </task>
     <servers />
   </component>

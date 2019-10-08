@@ -2,6 +2,7 @@ package travelexperts.dbhandler;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import travelexperts.models.Agent;
 import travelexperts.models.Customer;
 
 import java.sql.Connection;
@@ -77,6 +78,43 @@ public class CustomerDBHandler {
             return null;
         }
         return customerList;
+    }
+
+    //method to update the database with updated agent data
+    public static boolean updateCustomerDetails(Customer customer) {
+
+        try (Connection connection = DBConnectionManager.getDBConnection();
+             PreparedStatement statement = connection.prepareStatement("UPDATE customers SET CustFirstName=?," +
+                     "CustLastName=?,CustAddress=?,CustCity=?,CustProv=?,CustPostal=?,CustCountry=?,CustHomePhone=?," +
+                     "CustBusPhone=?,CustEmail=?,AgentId=?,CustUsername=?,CustPassword=? WHERE CustomerId=?"))
+        {
+            //databind sql query with values from gui
+            statement.setString(1,customer.getCustomerFirstName());
+            statement.setString(2,customer.getCustomerLastName());
+            statement.setString(3,customer.getCustomerAddress());
+            statement.setString(4,customer.getCustomerCity());
+            statement.setString(5,customer.getCustomerProvince());
+            statement.setString(6,customer.getCustomerPostalCode());
+            statement.setString(7,customer.getCustomerCountry());
+            statement.setString(8,customer.getCustomerHomePhone());
+            statement.setString(9,customer.getCustomerBusPhone());
+            statement.setString(10,customer.getCustomerEmail());
+            statement.setObject(11,customer.getAssignedAgentID()==0 ? null: customer.getAssignedAgentID());
+            statement.setString(12,customer.getCustomerUsername());
+            statement.setString(13,customer.getCustomerPassword());
+            statement.setInt(14,customer.getCustomerID());
+            //System.out.println(statement);
+            //execute update
+            int affected = statement.executeUpdate();
+            if(affected ==1){
+                return true;
+            }else{
+                return false;
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getStackTrace());
+            return false;
+        }
     }
 
     //method t verify if an input is an integer value

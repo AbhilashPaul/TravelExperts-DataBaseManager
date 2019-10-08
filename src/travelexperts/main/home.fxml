@@ -23,9 +23,9 @@
                            <children>
                               <VBox>
                                  <children>
-                                    <ImageView fitHeight="121.0" fitWidth="154.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="agentImage" fitHeight="121.0" fitWidth="154.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../images/janet_tn.jpg" />
+                                          <Image url="@../images/janet_tn.jpg" />
                                        </image>
                                        <VBox.margin>
                                           <Insets left="5.0" />

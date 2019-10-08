@@ -22,7 +22,7 @@
                <children>
                   <ImageView fitHeight="524.0" fitWidth="590.0" layoutX="31.0" layoutY="119.0" preserveRatio="true" AnchorPane.bottomAnchor="69.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="48.43902587890625" AnchorPane.topAnchor="119.0">
                      <image>
-                        <Image url="@../../images/WorldTravel.jpg" />
+                        <Image url="@../images/WorldTravel.jpg" />
                      </image>
                   </ImageView>
                   <Text fill="#0b033c" layoutX="62.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travel Experts">
