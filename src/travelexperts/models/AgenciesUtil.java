@@ -22,7 +22,18 @@ public class AgenciesUtil {
         }
         return null;
     }
-    //retrieve agency id using agency name
+
+    //retrieve agency name using agency id
+    public static <K,V> V getAgencyName(HashMap<K,V> hashmap, K key){
+        for (HashMap.Entry<K,V> entry : hashmap.entrySet()){
+            if( key.equals(entry.getKey())){
+                return entry.getValue();
+            }
+        }
+        return null;
+    }
+
+    //checks if the agency name exists in the map
     public static boolean contains(HashMap<Integer,String> hashmap, String value){
         for (HashMap.Entry<Integer,String> entry : hashmap.entrySet()){
             if( value.equals(entry.getValue())){
