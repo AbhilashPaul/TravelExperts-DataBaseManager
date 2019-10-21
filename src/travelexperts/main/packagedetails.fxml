@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="761.0" style="-fx-background-color: #d5edec;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.main.PackageDetailsController">
+   <children>
+      <Pane layoutX="57.0" layoutY="90.0" prefHeight="345.0" prefWidth="632.0" style="-fx-background-color: #CDB599FF;">
+         <children>
+            <Label layoutX="34.0" layoutY="26.0" text="Package Id">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="338.0" layoutY="26.0" text="Package Name">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="135.0" layoutY="66.0" text="Package Description">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="37.0" layoutY="122.0" text="Start Date">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="346.0" layoutY="123.0" text="End Date">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="34.0" layoutY="174.0" text="Base Price">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="346.0" layoutY="173.0" text="Commission">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="161.0" layoutY="220.0" text="Trip Type Id">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfPackageId" layoutX="135.0" layoutY="24.0" prefHeight="25.0" prefWidth="84.0" />
+            <TextField fx:id="tfPackageName" layoutX="437.0" layoutY="24.0" prefHeight="25.0" prefWidth="172.0" />
+            <TextField fx:id="tfPackageDescripion" layoutX="332.0" layoutY="63.0" />
+            <TextField fx:id="tfPackageStartDate" layoutX="135.0" layoutY="120.0" />
+            <TextField fx:id="tfPackageEndDate" layoutX="437.0" layoutY="121.0" />
+            <TextField fx:id="tfPackageBasePrice" layoutX="135.0" layoutY="170.0" />
+            <TextField fx:id="tfPackageAgencyCommission" layoutX="437.0" layoutY="170.0" />
+            <TextField fx:id="tfTripTypeId" layoutX="328.0" layoutY="217.0" />
+            <Button fx:id="btnEdit" layoutX="55.0" layoutY="272.0" mnemonicParsing="false" onAction="#onActionBtnEdit" style="-fx-background-color: #B1624EFF;" text="Edit" textFill="#d5edec">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnAddPackage" layoutX="233.0" layoutY="272.0" mnemonicParsing="false" onAction="#onActionBtnAddPackage" style="-fx-background-color: #B1624EFF;" text="Add Package" textFill="#d5edec">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSave" layoutX="487.0" layoutY="272.0" mnemonicParsing="false" onAction="#onActionBtnSave" style="-fx-background-color: #B1624EFF;" text="Save" textFill="#d5edec">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

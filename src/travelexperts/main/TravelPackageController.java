@@ -1,27 +1,23 @@
 package travelexperts.main;
 
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import travelexperts.dbhandler.DBConnectionManager;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import travelexperts.dbhandler.TravelPackageDBHandler;
 import travelexperts.models.TravelPackage;
 
-
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
 public class TravelPackageController {
@@ -40,32 +36,63 @@ public class TravelPackageController {
 
     @FXML // fx:id="col_pkgName"
     private TableColumn<TravelPackage, String> col_pkgName; // Value injected by FXMLLoader
+
+
+
     @FXML // fx:id="btnLoad"
-    private Button btnLoad; // Value injected by FXMLLoader
+    //private Button btnLoad; // Value injected by FXMLLoader
     private ObservableList<TravelPackage> data;
-    private DBConnectionManager dc;
+  //  private DBConnectionManager dc;
+    @FXML
+    private AnchorPane packageWorkSpace;
+
+
 
     @FXML
     void initialize() {
+
         data = FXCollections.observableArrayList();
         data = TravelPackageDBHandler.gatAllPackages();
         col_pkgId.setCellValueFactory(new PropertyValueFactory<>("pkgId"));
         col_pkgName.setCellValueFactory(new PropertyValueFactory<>("pkgName"));
         tablePackage.setItems(data);
-    }
 
-    @FXML
-    void loadDataFromDatabase(ActionEvent event) throws SQLException {
+        TableView.TableViewSelectionModel<TravelPackage> tablePackageSelect = tablePackage.getSelectionModel();
+        tablePackageSelect.selectedIndexProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("PackageDetails.fxml"));
+
+                try {
+                    Parent root = loader.load();
+                    Scene detailsScene = new Scene(root, 761, 553);
+                    Stage detailsStage = new Stage();
+                    detailsStage.setTitle("Package Details");
+                    detailsStage.setScene(detailsScene);
+                    detailsStage.setMaximized(false);
 
 
-    }
+                    PackageDetailsController detailsController = loader.getController();
+                    detailsController.displayPackageDetails(data.get((int) newValue));
+                    detailsStage.showAndWait();
 
 
-    public Button getBtnLoad() {
-        return btnLoad;
-    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
-    public void setBtnLoad(Button btnLoad) {
-        this.btnLoad = btnLoad;
+
+            }
+
+        });
     }
 }
+
+
+
+
+
+
+
+
+
