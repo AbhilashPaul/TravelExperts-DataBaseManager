@@ -61,7 +61,7 @@ public class TravelPackageController {
         tablePackageSelect.selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("PackageDetails.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/packagedetails.fxml"));
 
                 try {
                     Parent root = loader.load();

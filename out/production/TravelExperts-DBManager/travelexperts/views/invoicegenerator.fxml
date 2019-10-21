@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
+<Pane prefHeight="528.0" prefWidth="587.0" style="-fx-background-color: #CDB599FF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.main.InvoiceController">
+   <children>
+      <Label layoutX="28.0" layoutY="29.0" text="Name">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="28.0" layoutY="64.0" text="Address">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="28.0" layoutY="97.0" text="Contact">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfName" layoutX="93.0" layoutY="25.0" prefHeight="25.0" prefWidth="224.0" />
+      <TextField fx:id="tfAddress" layoutX="93.0" layoutY="60.0" prefHeight="25.0" prefWidth="224.0" />
+      <TextField fx:id="tfContact" layoutX="93.0" layoutY="93.0" prefHeight="25.0" prefWidth="224.0" />
+      <Separator layoutX="17.0" layoutY="138.0" prefHeight="9.0" prefWidth="531.0" />
+      <Label layoutX="28.0" layoutY="174.0" text="Booking Number">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfBookingNumber" layoutX="156.0" layoutY="172.0" />
+      <Separator layoutX="15.0" layoutY="244.0" prefHeight="0.0" prefWidth="542.0" />
+      <Label layoutX="28.0" layoutY="262.0" text="Flight">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="295.0" text="Car Rental">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="28.0" layoutY="332.0" text="Hotel">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="12.0" layoutY="377.0" prefHeight="9.0" prefWidth="542.0" />
+      <Label layoutX="167.0" layoutY="415.0" text="Total">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfFlight" layoutX="93.0" layoutY="258.0" />
+      <TextField fx:id="tfCarRental" layoutX="93.0" layoutY="292.0" />
+      <TextField fx:id="tfHotel" layoutX="93.0" layoutY="328.0" />
+      <Label layoutX="377.0" layoutY="21.0" text="Invoice Number">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfInvoiceNumber" layoutX="484.0" layoutY="19.0" prefHeight="25.0" prefWidth="84.0" />
+      <Button fx:id="btnEmail" layoutX="81.0" layoutY="471.0" mnemonicParsing="false" onAction="#onActionBtnEmail" prefHeight="30.0" prefWidth="56.0" style="-fx-background-color: #CE201C;" text="Email" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnSave" layoutX="426.0" layoutY="471.0" mnemonicParsing="false" onAction="#onActionBtnSave" prefHeight="30.0" prefWidth="56.0" style="-fx-background-color: #CE201C;" text="Save" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="tfTotal" layoutX="294.0" layoutY="413.0" />
+   </children>
+</Pane>

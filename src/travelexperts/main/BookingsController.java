@@ -51,7 +51,7 @@ public class BookingsController {
     @FXML
     void onActionBtnInvoice(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("invoicegenerator.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/invoicegenerator.fxml"));
             Parent root1 =  fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
@@ -79,7 +79,7 @@ public class BookingsController {
 
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("BookingsDetails.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/BookingsDetails.fxml"));
 
                 try {
                     Parent root = loader.load();
