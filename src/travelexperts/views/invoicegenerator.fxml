@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -14,92 +14,102 @@
 <Pane prefHeight="580.0" prefWidth="623.0" style="-fx-background-color: #CDB599FF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.main.InvoiceController">
    <children>
       <SplitPane dividerPositions="0.34834123222748814, 0.6919431279620853" layoutX="14.0" layoutY="81.0" orientation="VERTICAL" prefHeight="424.0" prefWidth="602.0">
-        <items>
+         <items>
             <AnchorPane prefHeight="222.0" prefWidth="600.0">
                <children>
-                  <Label layoutX="24.0" layoutY="38.0" text="Address Line 1">
+                  <Label fx:id="lbAddress1" layoutX="25.0" layoutY="48.0" text="Address Line 1">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="24.0" layoutY="58.0" text="Addres Line 2">
+                  <Label fx:id="lbAddress2" layoutX="25.0" layoutY="68.0" text="Address Line 2">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
                   <Separator layoutX="14.0" layoutY="10.0" prefHeight="9.0" prefWidth="531.0" />
-                  <Label layoutX="320.0" layoutY="120.0" text="Invoice Number">
+                  <Label layoutX="320.0" layoutY="120.0" text="Invoice Ref:">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbFirstName" layoutX="24.0" layoutY="21.0" prefHeight="20.0" prefWidth="74.0" text="FirstName">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="24.0" layoutY="21.0" prefHeight="20.0" prefWidth="74.0" text="FirstNam">
+                  <Label fx:id="lbLastName" layoutX="113.0" layoutY="21.0" text="Last Name">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="113.0" layoutY="21.0" text="Last Name">
+                  <Label layoutX="24.0" layoutY="95.0" prefHeight="20.0" prefWidth="74.0" text="Phone:">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="29.0" layoutY="78.0" prefHeight="20.0" prefWidth="74.0" text="Phone:">
+                  <Label layoutX="24.0" layoutY="112.0" prefHeight="20.0" prefWidth="74.0" text="Email">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="29.0" layoutY="98.0" prefHeight="20.0" prefWidth="74.0" text="Email">
+                  <Label layoutX="382.0" layoutY="17.0" text="Travel Experts Inc">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="382.0" layoutY="28.0" text="Travel Experts Inc">
+                  <Label layoutX="382.0" layoutY="37.0" text="1155 8th Ave SW">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="382.0" layoutY="48.0" text="Addess">
+                  <Label layoutX="382.0" layoutY="75.0" prefHeight="20.0" prefWidth="130.0" text="Phone: 4032719873">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="382.0" layoutY="68.0" prefHeight="20.0" prefWidth="74.0" text="Phone:">
+                  <Label fx:id="lbInvoiceNumber" layoutX="406.0" layoutY="119.0" text="Invoice Number">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="382.0" layoutY="88.0" prefHeight="20.0" prefWidth="74.0" text="Email">
+                  <Label fx:id="lbCustEmail" layoutX="90.0" layoutY="112.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="426.0" layoutY="122.0" text="Invoice Number">
+                  <Label fx:id="lbCustPhone" layoutX="92.0" layoutY="95.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="382.0" layoutY="54.0" text="Calgary, AB T2P1N3">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="138.0" prefWidth="600.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="138.0" prefWidth="600.0">
                <children>
-                  <TableView layoutX="46.0" layoutY="14.0" prefHeight="119.0" prefWidth="499.0">
-                    <columns>
-                      <TableColumn prefWidth="120.0" text="Booking Number" />
-                      <TableColumn prefWidth="84.0" text="Description" />
-                        <TableColumn prefWidth="75.0" text="Destination" />
-                        <TableColumn prefWidth="109.0" text="Price" />
-                    </columns>
+                  <TableView fx:id="tableDetails" layoutX="46.0" layoutY="14.0" prefHeight="119.0" prefWidth="499.0">
+                     <columns>
+                        <TableColumn fx:id="col_BookingDetailId" prefWidth="120.0" text="BookingDetail Id" />
+                        <TableColumn fx:id="col_Description" prefWidth="84.0" text="Description" />
+                        <TableColumn fx:id="col_Destination" prefWidth="75.0" text="Destination" />
+                        <TableColumn fx:id="col_Price" prefWidth="109.0" text="Price" />
+                     </columns>
                   </TableView>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
                   <Label layoutX="458.0" layoutY="26.0" text="Total:">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="510.0" layoutY="26.0" text="Total">
+                  <Label fx:id="lbTotal" layoutX="510.0" layoutY="26.0" text="Total">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -109,7 +119,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="511.0" layoutY="54.0" text="gst">
+                  <Label fx:id="lbgst" layoutX="511.0" layoutY="54.0" text="gst">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -120,21 +130,20 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="511.0" layoutY="82.0" text="Total">
+                  <Label fx:id="lbGrandTotal" layoutX="511.0" layoutY="82.0" text="Total">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-        </items>
+         </items>
       </SplitPane>
       <Label layoutX="28.0" layoutY="29.0" prefHeight="20.0" prefWidth="84.0" text="Booking ID:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="tfName" layoutX="112.0" layoutY="27.0" prefHeight="25.0" prefWidth="149.0" />
       <Button fx:id="btnEmail" layoutX="233.0" layoutY="527.0" mnemonicParsing="false" onAction="#onActionBtnEmail" prefHeight="30.0" prefWidth="56.0" style="-fx-background-color: #CE201C;" text="Email" textFill="WHITE">
          <font>
             <Font size="14.0" />
@@ -145,10 +154,6 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnEmail1" layoutX="340.0" layoutY="24.0" mnemonicParsing="false" onAction="#onActionBtnEmail" prefHeight="30.0" prefWidth="139.0" style="-fx-background-color: #CE201C;" text="Generate Invoice" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
+      <ComboBox fx:id="cmbBookingId" layoutX="105.0" layoutY="27.0" prefWidth="150.0" />
    </children>
 </Pane>

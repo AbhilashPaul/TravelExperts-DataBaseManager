@@ -4,13 +4,29 @@
 
 package travelexperts.main;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import travelexperts.dbhandler.*;
+import travelexperts.models.*;
 
 public class InvoiceController {
 
@@ -20,29 +36,57 @@ public class InvoiceController {
     @FXML // URL location of the FXML file that was given to the FXMLLoader
     private URL location;
 
-    @FXML // fx:id="tfName"
-    private TextField tfName; // Value injected by FXMLLoader
+    @FXML // fx:id="lbAddress1"
+    private Label lbAddress1; // Value injected by FXMLLoader
 
-    @FXML // fx:id="tfAddress"
-    private TextField tfAddress; // Value injected by FXMLLoader
+    @FXML // fx:id="lbAddress2"
+    private Label lbAddress2; // Value injected by FXMLLoader
+    @FXML
+    private Label lbCustEmail;
 
-    @FXML // fx:id="tfContact"
-    private TextField tfContact; // Value injected by FXMLLoader
+    @FXML
+    private Label lbCustPhone;
 
-    @FXML // fx:id="tfBookingNumber"
-    private TextField tfBookingNumber; // Value injected by FXMLLoader
+    @FXML
+    private Label lbAddress5;
 
-    @FXML // fx:id="tfFlight"
-    private TextField tfFlight; // Value injected by FXMLLoader
+    @FXML // fx:id="lbFirstName"
+    private Label lbFirstName; // Value injected by FXMLLoader
 
-    @FXML // fx:id="tfCarRental"
-    private TextField tfCarRental; // Value injected by FXMLLoader
+    @FXML // fx:id="lbLastName"
+    private Label lbLastName; // Value injected by FXMLLoader
 
-    @FXML // fx:id="tfHotel"
-    private TextField tfHotel; // Value injected by FXMLLoader
+    @FXML // fx:id="lbPhone"
+    private Label lbPhone; // Value injected by FXMLLoader
 
-    @FXML // fx:id="tfInvoiceNumber"
-    private TextField tfInvoiceNumber; // Value injected by FXMLLoader
+    @FXML // fx:id="lbEmail"
+    private Label lbEmail; // Value injected by FXMLLoader
+
+    @FXML // fx:id="lbInvoiceNumber"
+    private Label lbInvoiceNumber; // Value injected by FXMLLoader
+
+    @FXML // fx:id="tableDetails"
+    private TableView<Bookingdetail> tableDetails; // Value injected by FXMLLoader
+    @FXML
+    private TableColumn<Bookingdetail, Integer> col_BookingDetailId;
+
+    @FXML // fx:id="col_Description"
+    private TableColumn<Bookingdetail, String> col_Description; // Value injected by FXMLLoader
+
+    @FXML // fx:id="col_Destination"
+    private TableColumn<Bookingdetail, String> col_Destination; // Value injected by FXMLLoader
+
+    @FXML // fx:id="col_Price"
+    private TableColumn<Bookingdetail, BigDecimal> col_Price; // Value injected by FXMLLoader
+
+    @FXML // fx:id="lbTotal"
+    private Label lbTotal; // Value injected by FXMLLoader
+
+    @FXML // fx:id="lbgst"
+    private Label lbgst; // Value injected by FXMLLoader
+
+    @FXML // fx:id="lbGrandTotal"
+    private Label lbGrandTotal; // Value injected by FXMLLoader
 
     @FXML // fx:id="btnEmail"
     private Button btnEmail; // Value injected by FXMLLoader
@@ -50,8 +94,12 @@ public class InvoiceController {
     @FXML // fx:id="btnSave"
     private Button btnSave; // Value injected by FXMLLoader
 
-    @FXML // fx:id="tfTotal"
-    private TextField tfTotal; // Value injected by FXMLLoader
+    @FXML // fx:id="cmbBookingId"
+    private ComboBox<Integer> cmbBookingId; // Value injected by FXMLLoader
+
+    @FXML
+    private Text txtUserFeedback;
+
 
     @FXML
     void onActionBtnEmail(ActionEvent event) {
@@ -62,23 +110,93 @@ public class InvoiceController {
     void onActionBtnSave(ActionEvent event) {
 
     }
-
-    @FXML // This method is called by the FXMLLoader when initialization is complete
+    private ObservableList<Bookingdetail> data;
+    @FXML
+        // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
-        assert tfName != null : "fx:id=\"tfName\" was not injected: check your FXML file 'invoicegenerator.fxml'.";
-        assert tfAddress != null : "fx:id=\"tfAddress\" was not injected: check your FXML file 'invoicegenerator.fxml'.";
-        assert tfContact != null : "fx:id=\"tfContact\" was not injected: check your FXML file 'invoicegenerator.fxml'.";
-        assert tfBookingNumber != null : "fx:id=\"tfBookingNumber\" was not injected: check your FXML file 'invoicegenerator.fxml'.";
-        assert tfFlight != null : "fx:id=\"tfFlight\" was not injected: check your FXML file 'invoicegenerator.fxml'.";
-        assert tfCarRental != null : "fx:id=\"tfCarRental\" was not injected: check your FXML file 'invoicegenerator.fxml'.";
-        assert tfHotel != null : "fx:id=\"tfHotel\" was not injected: check your FXML file 'invoicegenerator.fxml'.";
-        assert tfInvoiceNumber != null : "fx:id=\"tfInvoiceNumber\" was not injected: check your FXML file 'invoicegenerator.fxml'.";
-        assert btnEmail != null : "fx:id=\"btnEmail\" was not injected: check your FXML file 'invoicegenerator.fxml'.";
-        assert btnSave != null : "fx:id=\"btnSave\" was not injected: check your FXML file 'invoicegenerator.fxml'.";
-        assert tfTotal != null : "fx:id=\"tfTotal\" was not injected: check your FXML file 'invoicegenerator.fxml'.";
+
+        dataBindComboBox();
+        //adds change event listener to the combobox
+        cmbBookingId.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Integer>() {
+            //cmbBookingId.valueProperty().addListener(new ChangeListener<Integer>() {
+            @Override
+            public void changed(ObservableValue<? extends Integer> observable, Integer oldValue, Integer newValue) {
+                //retrieve agent details and display it in the gui
+                Bookings booking= BookingsDBHandler.gatBookingsDetails(newValue);
+                if (booking != null) {
+                    Bookingdetail bookingdetail = BookingdetailDBHandler.gatBookingdetail(booking.getBookingId());
+                    Customer customer= CustomerDBHandler.getCustomerDetails(booking.getCustomerId());
+                    if (customer != null && bookingdetail != null) {
+                        //displayBookingdetail(bookingNo);
+                        String invoiceRef = Invoice.generateInvoiceRef(8);
+                        StringBuilder addressLine2 = new StringBuilder();
+                        addressLine2.append(customer.getCustomerCity())
+                                .append(", ")
+                                .append(customer.getCustomerProvince())
+                                .append(" ")
+                                .append(customer.getCustomerPostalCode());
+
+                        lbFirstName.setText(customer.getCustomerFirstName() + "");
+                        lbLastName.setText(customer.getCustomerLastName() + "");
+                        lbAddress1.setText(customer.getCustomerAddress() + "");
+                        lbAddress2.setText( addressLine2.toString());
+                        lbCustPhone.setText(customer.getCustomerHomePhone());
+                        lbCustEmail.setText(customer.getCustomerEmail());
+                        lbInvoiceNumber.setText(invoiceRef);
+                        //lbEmail.setText(customer.getCustomerEmail());
+                        //lbAddress4.setText(customer.getCustomerCountry() + "");
+                        //lbPhone.setText(customer.getCustomerHomePhone() + "");
+                        //lbEmail.setText(customer.getCustomerEmail() + "");
+
+
+                        data = FXCollections.observableArrayList();
+                        ObservableList<Bookingdetail> detailList = FXCollections.observableArrayList();
+                        detailList.add(bookingdetail);
+                        col_BookingDetailId.setCellValueFactory(new PropertyValueFactory<>("BookingDetailId"));
+                        col_Description.setCellValueFactory(new PropertyValueFactory<>("Description"));
+                        col_Destination.setCellValueFactory(new PropertyValueFactory<>("Destination"));
+                        col_Price.setCellValueFactory(new PropertyValueFactory<>("BasePrice"));
+                        tableDetails.setItems(detailList);
+
+                        //MathContext mc = new MathContext(4);
+                        BigDecimal total = new BigDecimal(0);
+                        for (Bookingdetail o : tableDetails.getItems()) {
+                            total.add(o.getBasePrice());
+                        }
+
+                        lbTotal.setText(total.toString());
+
+                    }
+                } else {
+                    txtUserFeedback.setText("No record found!");
+                }
+
+            }
+        });
+
 
     }
 
+    // private void displayBookingdetail(Bookings bookingNo) {
 
+
+    // }
+
+    private void dataBindComboBox() {
+        ObservableList<Integer> bookingsList = FXCollections.observableArrayList();
+        try {
+            bookingsList.addAll(BookingsDBHandler.getBookingIds());
+            cmbBookingId.setItems(bookingsList);
+        } catch (Exception e) {
+            txtUserFeedback.setFill(Color.MAROON);
+            txtUserFeedback.setText("Unable to connect to the database!");
+        }
+    }
 }
+
+
+
+
+
+
 

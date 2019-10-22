@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="846.0" style="-fx-background-color: #d5edec;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.controllers.AgentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="846.0" style="-fx-background-color: #bdbdbd;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.controllers.AgentController">
    <children>
-      <SplitPane dividerPositions="0.19963031423290203" layoutX="34.0" layoutY="24.0" orientation="VERTICAL" prefHeight="599.0" prefWidth="734.0" style="-fx-background-color: #d5edec;">
+      <SplitPane dividerPositions="0.19963031423290203" layoutX="34.0" layoutY="24.0" orientation="VERTICAL" prefHeight="599.0" prefWidth="734.0" style="-fx-background-color: #efefef;">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
@@ -73,7 +73,7 @@
                         <Font name="Calibri Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnSave" disable="true" layoutX="336.0" layoutY="330.0" mnemonicParsing="false" onAction="#onActionBtnSave" prefHeight="43.0" prefWidth="107.0" text="Save">
+                  <Button fx:id="btnSave" disable="true" layoutX="336.0" layoutY="330.0" mnemonicParsing="false" onAction="#onActionBtnSave" prefHeight="43.0" prefWidth="107.0" style="-fx-background-color: #373737;" text="Save" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="14.0" />
                      </font>
@@ -81,7 +81,7 @@
                         <Glow />
                      </effect>
                   </Button>
-                  <Button fx:id="btnEdit" disable="true" layoutX="171.0" layoutY="330.0" mnemonicParsing="false" onAction="#onActionBtnEdit" prefHeight="43.0" prefWidth="107.0" text="Edit">
+                  <Button fx:id="btnEdit" disable="true" layoutX="171.0" layoutY="330.0" mnemonicParsing="false" onAction="#onActionBtnEdit" prefHeight="43.0" prefWidth="107.0" style="-fx-background-color: #373737;" text="Edit" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="14.0" />
                      </font>
