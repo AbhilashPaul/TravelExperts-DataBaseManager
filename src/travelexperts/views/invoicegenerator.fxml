@@ -38,22 +38,38 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
+<<<<<<< HEAD
                   <Label fx:id="lbLastName" layoutX="113.0" layoutY="21.0" text="Last Name">
+=======
+                  <Label fx:id="lbFirstName" layoutX="24.0" layoutY="21.0" prefHeight="20.0" prefWidth="74.0" text="FirstName">
+>>>>>>> 72753d0fba69cb49d979f045cf8f56a667f219a8
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
+<<<<<<< HEAD
                   <Label layoutX="24.0" layoutY="95.0" prefHeight="20.0" prefWidth="74.0" text="Phone:">
+=======
+                  <Label fx:id="lbLastName" layoutX="113.0" layoutY="21.0" text="Last Name">
+>>>>>>> 72753d0fba69cb49d979f045cf8f56a667f219a8
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
+<<<<<<< HEAD
                   <Label layoutX="24.0" layoutY="112.0" prefHeight="20.0" prefWidth="74.0" text="Email">
+=======
+                  <Label layoutX="24.0" layoutY="95.0" prefHeight="20.0" prefWidth="74.0" text="Phone:">
+>>>>>>> 72753d0fba69cb49d979f045cf8f56a667f219a8
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
+<<<<<<< HEAD
                   <Label layoutX="382.0" layoutY="17.0" text="Travel Experts Inc">
+=======
+                  <Label layoutX="24.0" layoutY="112.0" prefHeight="20.0" prefWidth="74.0" text="Email">
+>>>>>>> 72753d0fba69cb49d979f045cf8f56a667f219a8
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -78,12 +94,25 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
+<<<<<<< HEAD
                   <Label fx:id="lbCustPhone" layoutX="92.0" layoutY="95.0">
+=======
+                  <Label fx:id="lbInvoiceNumber" layoutX="426.0" layoutY="122.0" text="Invoice Number">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
+                  <Label fx:id="lbCustEmail" layoutX="90.0" layoutY="112.0">
+>>>>>>> 72753d0fba69cb49d979f045cf8f56a667f219a8
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+<<<<<<< HEAD
                   <Label layoutX="382.0" layoutY="54.0" text="Calgary, AB T2P1N3">
+=======
+                  <Label fx:id="lbCustPhone" layoutX="92.0" layoutY="95.0">
+>>>>>>> 72753d0fba69cb49d979f045cf8f56a667f219a8
                      <font>
                         <Font size="14.0" />
                      </font>
