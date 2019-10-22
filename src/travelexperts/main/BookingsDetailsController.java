@@ -4,22 +4,30 @@
 
 package travelexperts.main;
 
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
-import travelexperts.dbhandler.DBConnectionManager;
-import travelexperts.models.Bookings;
-
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import travelexperts.dbhandler.BookingsDBHandler;
+import travelexperts.dbhandler.DBConnectionManager;
+import travelexperts.dbhandler.TravelPackageDBHandler;
+import travelexperts.models.Bookings;
+import travelexperts.models.TravelPackage;
 
 public class BookingsDetailsController {
 
@@ -118,11 +126,11 @@ public class BookingsDetailsController {
         String sql = "UPDATE `bookings` SET `BookingDate`=? , `BookingNo`=? ,  `TravelerCount` =?, `CustomerId` =?, `TriptypeId` = ?, `PackageId` =? WHERE `BookingId`= ?";
         int rows;
         Connection connection = DBConnectionManager.getDBConnection();
-       // if (connection == null)
-           // System.out.println("Connection is NULL!");
-       // else
-            //System.out.println("Connection is NOT NULL!");
-       // System.out.println("Setting PackageID to "+Integer.parseInt(tfPackageId.getText()));
+        // if (connection == null)
+        // System.out.println("Connection is NULL!");
+        // else
+        //System.out.println("Connection is NOT NULL!");
+        // System.out.println("Setting PackageID to "+Integer.parseInt(tfPackageId.getText()));
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(7, Integer.parseInt(tfBookingId.getText()));
             statement.setDate(1, Date.valueOf(tfBookingDate.getText()));

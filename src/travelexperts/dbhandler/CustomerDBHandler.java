@@ -126,4 +126,34 @@ public class CustomerDBHandler {
         }
         return true;
     }
+
+    public static Customer getCustomerDetails(int id) {
+        Customer cust = null;
+        try (Connection connection = DBConnectionManager.getDBConnection();
+             PreparedStatement statement = connection.prepareStatement("SELECT * from customers where CustomerId =?",
+                     ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);) {
+            statement.setString(1, String.valueOf(id));
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    cust = new Customer();
+                    cust.setCustomerID(resultSet.getInt("CustomerId"));
+                    cust.setCustomerFirstName(resultSet.getString("CustFirstName"));
+                    cust.setCustomerLastName(resultSet.getString("CustLastName"));
+                    cust.setCustomerAddress(resultSet.getString("CustAddress"));
+                    cust.setCustomerCity(resultSet.getString("CustCity"));
+                    cust.setCustomerProvince(resultSet.getString("CustProv"));
+                    cust.setCustomerPostalCode(resultSet.getString("CustPostal"));
+                    cust.setCustomerCountry(resultSet.getString("CustCountry"));
+                    cust.setCustomerHomePhone(resultSet.getString("CustHomePhone"));
+                    cust.setCustomerBusPhone(resultSet.getString("CustBusPhone"));
+                    cust.setCustomerEmail(resultSet.getString("CustEmail"));
+                    cust.setAssignedAgentID(resultSet.getInt("AgentId"));
+
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return cust;
+    }
 }
