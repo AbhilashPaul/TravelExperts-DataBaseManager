@@ -5,14 +5,13 @@
 package travelexperts.main;
 
 import java.math.BigDecimal;
-<<<<<<< HEAD
+
 import java.math.MathContext;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-=======
+
 import java.net.URL;
->>>>>>> 72753d0fba69cb49d979f045cf8f56a667f219a8
 import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
@@ -30,14 +29,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import travelexperts.dbhandler.*;
-<<<<<<< HEAD
+
 import travelexperts.models.*;
-=======
+
 import travelexperts.models.Bookingdetail;
 import travelexperts.models.Bookings;
 import travelexperts.models.Customer;
 import travelexperts.models.TravelPackage;
->>>>>>> 72753d0fba69cb49d979f045cf8f56a667f219a8
+
 
 public class InvoiceController {
 
@@ -139,10 +138,8 @@ public class InvoiceController {
                     Customer customer= CustomerDBHandler.getCustomerDetails(booking.getCustomerId());
                     if (customer != null && bookingdetail != null) {
                         //displayBookingdetail(bookingNo);
-<<<<<<< HEAD
                         String invoiceRef = Invoice.generateInvoiceRef(8);
-=======
->>>>>>> 72753d0fba69cb49d979f045cf8f56a667f219a8
+
                         StringBuilder addressLine2 = new StringBuilder();
                         addressLine2.append(customer.getCustomerCity())
                                 .append(", ")
@@ -156,10 +153,7 @@ public class InvoiceController {
                         lbAddress2.setText( addressLine2.toString());
                         lbCustPhone.setText(customer.getCustomerHomePhone());
                         lbCustEmail.setText(customer.getCustomerEmail());
-<<<<<<< HEAD
                         lbInvoiceNumber.setText(invoiceRef);
-=======
->>>>>>> 72753d0fba69cb49d979f045cf8f56a667f219a8
                         //lbEmail.setText(customer.getCustomerEmail());
                         //lbAddress4.setText(customer.getCustomerCountry() + "");
                         //lbPhone.setText(customer.getCustomerHomePhone() + "");
@@ -174,8 +168,6 @@ public class InvoiceController {
                         col_Destination.setCellValueFactory(new PropertyValueFactory<>("Destination"));
                         col_Price.setCellValueFactory(new PropertyValueFactory<>("BasePrice"));
                         tableDetails.setItems(detailList);
-
-<<<<<<< HEAD
                         //MathContext mc = new MathContext(4);
                         BigDecimal total = new BigDecimal(0);
                         for (Bookingdetail o : tableDetails.getItems()) {
@@ -184,8 +176,6 @@ public class InvoiceController {
 
                         lbTotal.setText(total.toString());
 
-=======
->>>>>>> 72753d0fba69cb49d979f045cf8f56a667f219a8
                     }
                 } else {
                     txtUserFeedback.setText("No record found!");
