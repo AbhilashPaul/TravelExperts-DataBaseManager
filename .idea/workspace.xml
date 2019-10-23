@@ -2,69 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/travelexperts/controllers/InvoiceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/travelexperts/utils/PrintService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/InvoiceController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/controllers/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/controllers/HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/controllers/TravelPackageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/controllers/TravelPackageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/dbhandler/BookingsDBHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/dbhandler/BookingsDBHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/dbhandler/CustomerDBHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/dbhandler/CustomerDBHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/AgentController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/AgentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/AnalyticsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/BookingsController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/BookingsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/BookingsDetailsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/Controller$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/CustomerController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/CustomerController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/CustomerDetailsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/HomeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/InvoiceController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/LoginController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/PackageDetailsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/TravelPackageController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/TravelPackageController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/UserProfileController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/models/Invoice.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/models/Invoice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/Bookings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/Bookings.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/BookingsDetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/BookingsDetails.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/agent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/agent.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/controllers/BookingsDetailsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/controllers/BookingsDetailsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/InvoiceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/InvoiceController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/invoicegenerator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/invoicegenerator.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/package.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/package.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/packagedetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/packagedetails.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/packages.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/controllers/TravelPackageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/controllers/TravelPackageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/dbhandler/BookingsDBHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/dbhandler/BookingsDBHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/dbhandler/CustomerDBHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/dbhandler/CustomerDBHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/main/AgentController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/main/AnalyticsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/main/BookingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/controllers/BookingsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/main/BookingsDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/controllers/BookingsDetailsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/main/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/main/CustomerController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/main/CustomerDetailsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/main/HomeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/main/InvoiceController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/main/LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/main/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/main/PackageDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/controllers/PackageDetailsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/main/TravelPackageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/main/UserProfileController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/views/Bookings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/views/Bookings.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/views/BookingsDetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/views/BookingsDetails.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/views/agent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/views/agent.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/views/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/views/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/travelexperts/main/InvoiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/main/InvoiceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/travelexperts/views/invoicegenerator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/views/invoicegenerator.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/views/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/views/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/views/package.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/views/package.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/views/packagedetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/views/packagedetails.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/views/packages.fxml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -346,7 +290,8 @@
       <workItem from="1571765718602" duration="6320000" />
       <workItem from="1571765718602" duration="1082000" />
       <workItem from="1571772925585" duration="858000" />
-      <workItem from="1571778601807" duration="12737000" />
+      <workItem from="1571778601807" duration="13496000" />
+      <workItem from="1571792499587" duration="319000" />
     </task>
     <servers />
   </component>
