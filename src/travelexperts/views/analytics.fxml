@@ -3,22 +3,43 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.ScatterChart?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="691.0" prefWidth="811.0" style="-fx-background-color: #d5edec;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.controllers.AnalyticsController">
+<AnchorPane prefHeight="691.0" prefWidth="811.0" style="-fx-background-color: #bdbdbd;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.controllers.AnalyticsController">
    <children>
-      <VBox layoutX="33.0" layoutY="42.0" prefHeight="268.0" prefWidth="566.0">
+      <VBox layoutX="33.0" layoutY="42.0" prefHeight="268.0" prefWidth="549.0">
          <children>
-            <BarChart fx:id="barChartTopDestinations" prefHeight="282.0" prefWidth="566.0" verticalGridLinesVisible="false">
+            <BarChart fx:id="barChartTopDestinations" prefHeight="268.0" prefWidth="537.0" verticalGridLinesVisible="false">
               <xAxis>
-                <CategoryAxis side="BOTTOM" fx:id="xAxis" />
+                <CategoryAxis side="BOTTOM" fx:id="xAxis_dest" />
               </xAxis>
               <yAxis>
-                <NumberAxis fx:id="yAxis" minorTickCount="2" minorTickLength="1.0" side="LEFT" tickLength="2.0" tickUnit="1.0" upperBound="40.0" />
+                <NumberAxis fx:id="yAxis_dest" minorTickCount="2" minorTickLength="1.0" side="LEFT" tickLength="2.0" tickUnit="1.0" upperBound="40.0" />
               </yAxis>
             </BarChart>
          </children>
       </VBox>
+      <Label layoutX="64.0" layoutY="22.0" text="Top Destinations" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </Label>
+      <ScatterChart fx:id="scatterPlotTopCustomers" layoutX="25.0" layoutY="321.0" prefHeight="268.0" prefWidth="557.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" fx:id="xAxis_cust" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="yAxis_cust" minorTickCount="2" side="LEFT" tickUnit="2.0" />
+        </yAxis>
+      </ScatterChart>
+      <Label layoutX="64.0" layoutY="299.0" text="Top Customers" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

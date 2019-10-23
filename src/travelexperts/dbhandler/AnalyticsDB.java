@@ -33,6 +33,28 @@ public class AnalyticsDB {
     }
 
 
+    public static HashMap<String, Integer> getTopCustomers() throws SQLException {
+
+        HashMap<String, Integer> topCustomersList = new HashMap<String, Integer>();
+        String query = "SELECT T.CustomerId, C.CustFirstName, C.CustLastName, T.NumberOfBookings FROM " +
+                "(SELECT COUNT(*) AS NumberOfBookings, CustomerId FROM bookings GROUP BY CustomerId) AS T " +
+                "INNER JOIN customers As C ON C.CustomerId = T.CustomerId ORDER BY T.NumberOfBookings DESC LIMIT 10";
+
+        try(Connection conn = DBConnectionManager.getDBConnection();
+            Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            ResultSet rs = stmt.executeQuery(query)
+        ) {
+            //loop through the result set and add the records to the hashmap
+            while(rs.next()){
+                topCustomersList.put(rs.getString(2)+" "+rs.getString(3)+"("+rs.getString(1)+")",rs.getInt(4));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            throw new SQLException();
+        }
+        return topCustomersList;
+    }
+
     String query = "SELECT T.CustomerId, C.CustFirstName, C.CustLastName, T.NumberOfBookings FROM " +
             "(SELECT COUNT(*) AS NumberOfBookings, CustomerId FROM bookings GROUP BY CustomerId) AS T " +
             "INNER JOIN customers As C ON C.CustomerId = T.CustomerId ORDER BY T.NumberOfBookings DESC LIMIT 10";

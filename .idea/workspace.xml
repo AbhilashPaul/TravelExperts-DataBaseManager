@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/InvoiceController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/controllers/BookingsDetailsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/controllers/BookingsDetailsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/InvoiceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/main/InvoiceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/invoicegenerator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/invoicegenerator.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/main/InvoiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/main/InvoiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/travelexperts/views/invoicegenerator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/views/invoicegenerator.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/controllers/AnalyticsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/controllers/AnalyticsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/dbhandler/AnalyticsDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/dbhandler/AnalyticsDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/analytics.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravelExperts-DBManager/travelexperts/views/analytics.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/travelexperts/controllers/AnalyticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/controllers/AnalyticsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/travelexperts/dbhandler/AnalyticsDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/dbhandler/AnalyticsDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/travelexperts/views/analytics.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/travelexperts/views/analytics.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -292,6 +292,7 @@
       <workItem from="1571772925585" duration="858000" />
       <workItem from="1571778601807" duration="13496000" />
       <workItem from="1571792499587" duration="319000" />
+      <workItem from="1571792974632" duration="3715000" />
     </task>
     <servers />
   </component>
