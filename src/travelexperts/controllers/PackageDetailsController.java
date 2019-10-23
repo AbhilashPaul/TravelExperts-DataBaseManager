@@ -2,7 +2,7 @@
  * Sample Skeleton for 'packagedetails.fxml' Controller Class
  */
 
-package travelexperts.main;
+package travelexperts.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

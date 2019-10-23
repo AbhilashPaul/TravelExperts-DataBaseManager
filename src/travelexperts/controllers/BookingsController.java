@@ -2,7 +2,7 @@
  * Sample Skeleton for 'Bookings.fxml' Controller Class
  */
 
-package travelexperts.main;
+package travelexperts.controllers;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

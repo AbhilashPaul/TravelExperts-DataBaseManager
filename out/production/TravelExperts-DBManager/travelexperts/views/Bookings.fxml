@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="545.0" prefWidth="686.0" style="-fx-background-color: #d5edec;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.main.BookingsController">
+<AnchorPane prefHeight="545.0" prefWidth="686.0" style="-fx-background-color: #d5edec;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.controllers.BookingsController">
    <children>
       <TableView fx:id="tableBookings" layoutX="103.0" layoutY="28.0" prefHeight="425.0" prefWidth="465.0">
         <columns>

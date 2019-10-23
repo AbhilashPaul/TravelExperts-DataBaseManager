@@ -4,7 +4,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane prefHeight="604.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.main.TravelPackageController">
+<AnchorPane prefHeight="604.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.controllers.TravelPackageController">
    <children>
       <SplitPane dividerPositions="0.9878682842287695" layoutX="7.0" layoutY="6.0" orientation="VERTICAL" prefHeight="579.0" prefWidth="757.0" style="-fx-background-color: #d5edec;">
         <items>

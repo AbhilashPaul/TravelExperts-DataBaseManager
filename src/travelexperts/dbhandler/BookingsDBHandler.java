@@ -5,8 +5,32 @@ import javafx.collections.ObservableList;
 import travelexperts.models.Bookings;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class BookingsDBHandler {
+
+    public static ArrayList<Integer> getBookingIds() throws Exception{
+        ArrayList<Integer> bookingIds = new ArrayList<Integer>();
+        try(Connection conn = DBConnectionManager.getDBConnection();
+            Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            ResultSet rs = stmt.executeQuery("SELECT BookingId FROM bookings")
+        ) {
+            //System.out.println("connected!");
+            //loop through the result set and add the ids to the list
+            while(rs.next()){
+                bookingIds.add(rs.getInt("BookingId"));
+            }
+            //sort the list
+            Collections.sort(bookingIds);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            throw new SQLException();
+        }
+        return bookingIds;
+    }
+
     public static Bookings gatBookingsDetails(int id) {
         Bookings book = null;
         try (Connection connection = DBConnectionManager.getDBConnection();
@@ -16,13 +40,13 @@ public class BookingsDBHandler {
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     book = new Bookings();
-                    book.setBookingId(Integer.parseInt(resultSet.getString("BookingId")));
+                    book.setBookingId(resultSet.getInt("BookingId"));
                     book.setBookingDate(resultSet.getDate("BookingDate"));
                     book.setBookingNo(resultSet.getString("BookingNo"));
-                    book.setTravelerCount(Integer.parseInt(resultSet.getString("TravelerCount")));
-                    book.setCustomerId(Integer.parseInt(resultSet.getString("CustomerId")));
+                    book.setTravelerCount(resultSet.getInt("TravelerCount"));
+                    book.setCustomerId(resultSet.getInt("CustomerId"));
                     book.setTripTypeId(resultSet.getString("TripTypeId"));
-                    book.setPackageId(Integer.parseInt(resultSet.getString("PackageId")));
+                    book.setPackageId(resultSet.getInt("PackageId"));
 
                 }
             }

@@ -114,5 +114,12 @@ public class HomeController {
         primaryStage.setX((primScreenBounds.getWidth() - primaryStage.getWidth()) / 2);
         primaryStage.setY((primScreenBounds.getHeight() - primaryStage.getHeight()) / 2);
     }
+
+    public void onActionBtnInvoice(ActionEvent actionEvent) throws IOException {
+        Parent invoiceRoot;
+        invoiceRoot = FXMLLoader.load(getClass().getResource("../views/invoicegenerator.fxml"));
+        displayPane.getChildren().clear();
+        displayPane.getChildren().addAll(invoiceRoot );
+    }
 }
 
