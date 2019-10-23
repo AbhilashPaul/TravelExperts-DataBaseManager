@@ -123,17 +123,7 @@ public class Customer {
     //to string method
     @Override
     public String toString() {
-        return  "customerID=" + customerID +
-                ", customerFirstName='" + customerFirstName + '\'' +
-                ", customerLastName='" + customerLastName + '\'' +
-                ", customerAddress='" + customerAddress + '\'' +
-                ", customerCity='" + customerCity + '\'' +
-                ", customerProvince='" + customerProvince + '\'' +
-                ", customerPostalCode='" + customerPostalCode + '\'' +
-                ", customerCountry='" + customerCountry + '\'' +
-                ", customerHomePhone='" + customerHomePhone + '\'' +
-                ", customerBusPhone='" + customerBusPhone + '\'' +
-                ", customerEmail='" + customerEmail + '\'' +
-                ", assignedAgentID=" + assignedAgentID ;
+        return  customerFirstName +
+                " " + customerLastName;
     }
 }

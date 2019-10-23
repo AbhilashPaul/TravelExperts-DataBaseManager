@@ -15,21 +15,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import travelexperts.dbhandler.BookingsDBHandler;
+import javafx.scene.control.*;
+import travelexperts.dbhandler.CustomerDBHandler;
 import travelexperts.dbhandler.DBConnectionManager;
 import travelexperts.dbhandler.TravelPackageDBHandler;
 import travelexperts.models.Bookings;
-import travelexperts.models.TravelPackage;
+import travelexperts.models.Customer;
 
 public class BookingsDetailsController {
+
+    Bookings booking = new Bookings();
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -42,9 +37,6 @@ public class BookingsDetailsController {
 
     @FXML // fx:id="tfTravelerCount"
     private TextField tfTravelerCount; // Value injected by FXMLLoader
-
-    @FXML // fx:id="btnAddBookings"
-    private Button btnAddBookings; // Value injected by FXMLLoader
 
     @FXML // fx:id="btnSave"
     private Button btnSave; // Value injected by FXMLLoader
@@ -67,42 +59,8 @@ public class BookingsDetailsController {
     @FXML // fx:id="tfBookingDate"
     private TextField tfBookingDate; // Value injected by FXMLLoader
 
-    private ObservableList<Bookings> data;
-
-
     @FXML
-    void onActionBtnAddBookings(ActionEvent event) throws SQLException {
-
-        btnAddBookings.setDisable(true);
-        btnSave.setDisable(true);
-        btnEdit.setDisable(true);
-        String sql = "Insert into bookings (BookingId,BookingDate,BookingNo,TravelerCount,CustomerId,TripTypeId,PackageId) Values (?,?,?,?,?,?,?) ";
-        int rows;
-        Connection connection = DBConnectionManager.getDBConnection();
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, Integer.parseInt(tfBookingId.getText()));
-            statement.setDate(2, Date.valueOf(tfBookingDate.getText()));
-            statement.setString(3, tfBookingNo.getText());
-            statement.setInt(4, Integer.parseInt(tfTravelerCount.getText()));
-            statement.setInt(5, Integer.parseInt(tfCustomerId.getText()));
-            statement.setString(6, tfTripTypeId.getText());
-            statement.setInt(7, Integer.parseInt(tfPackageId.getText()));
-            rows = statement.executeUpdate();
-        }
-        connection.close();
-        if (rows == 0)
-        {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Insertion failed, contact tech support", ButtonType.OK);
-            alert.show();
-        }
-        else
-        {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Insertion successful", ButtonType.OK);
-            alert.show();
-        }
-
-    }
-
+    private ComboBox<Customer> cboCustomerID;
 
     @FXML
     void onActionBtnEdit(ActionEvent event) {
@@ -111,18 +69,33 @@ public class BookingsDetailsController {
         tfBookingDate.setEditable(true);
         tfTravelerCount.setEditable(true);
         tfCustomerId.setEditable(true);
+
+        if(this.booking.getPackageId() != 0){
+            tfTripTypeId.setEditable(false);
+        }else{
         tfTripTypeId.setEditable(true);
+        }
         tfPackageId.setEditable(true);
         btnSave.setDisable(false);
-        btnAddBookings.setDisable(false);
 
     }
-
 
     @FXML
     void onActionBtnSave(ActionEvent event) throws SQLException {
         btnSave.setDisable(true);
         btnEdit.setDisable(true);
+        Integer packageId = null;
+        String tripType =null;
+
+        if(tfPackageId.getText() != "" || Integer.parseInt(tfPackageId.getText()) != 0){
+            packageId = Integer.parseInt(tfPackageId.getText());
+            tripType = tfTripTypeId.getText();
+        }else {
+
+            tripType = TravelPackageDBHandler.gatPackageDetails(packageId).getPkgTripType();
+
+        }
+
         String sql = "UPDATE `bookings` SET `BookingDate`=? , `BookingNo`=? ,  `TravelerCount` =?, `CustomerId` =?, `TriptypeId` = ?, `PackageId` =? WHERE `BookingId`= ?";
         int rows;
         Connection connection = DBConnectionManager.getDBConnection();
@@ -136,9 +109,9 @@ public class BookingsDetailsController {
             statement.setDate(1, Date.valueOf(tfBookingDate.getText()));
             statement.setString(2, tfBookingNo.getText());
             statement.setInt(3, Integer.parseInt(tfTravelerCount.getText()));
-            statement.setInt(4, Integer.parseInt(tfCustomerId.getText()));
-            statement.setString(5, tfTripTypeId.getText());
-            statement.setInt(6, Integer.parseInt(tfPackageId.getText()));
+            statement.setInt(4, cboCustomerID.getSelectionModel().getSelectedItem().getCustomerID());
+            statement.setString(5, tripType);
+            statement.setString (6, String.valueOf(packageId));
             rows = statement.executeUpdate();
         }
         connection.close();
@@ -159,19 +132,6 @@ public class BookingsDetailsController {
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
-        assert tfBookingId != null : "fx:id=\"tfBookingId\" was not injected: check your FXML file 'BookingsDetails.fxml'.";
-        assert tfTravelerCount != null : "fx:id=\"tfTravelerCount\" was not injected: check your FXML file 'BookingsDetails.fxml'.";
-        assert btnAddBookings != null : "fx:id=\"btnAddBookings\" was not injected: check your FXML file 'BookingsDetails.fxml'.";
-        assert btnSave != null : "fx:id=\"btnSave\" was not injected: check your FXML file 'BookingsDetails.fxml'.";
-        assert tfTripTypeId != null : "fx:id=\"tfTripTypeId\" was not injected: check your FXML file 'BookingsDetails.fxml'.";
-        assert tfPackageId != null : "fx:id=\"tfPackageId\" was not injected: check your FXML file 'BookingsDetails.fxml'.";
-        assert tfCustomerId != null : "fx:id=\"tfCustomerId\" was not injected: check your FXML file 'BookingsDetails.fxml'.";
-        assert tfBookingNo != null : "fx:id=\"tfBookingNo\" was not injected: check your FXML file 'BookingsDetails.fxml'.";
-        assert btnEdit != null : "fx:id=\"btnEdit\" was not injected: check your FXML file 'BookingsDetails.fxml'.";
-        assert tfBookingDate != null : "fx:id=\"tfBookingDate\" was not injected: check your FXML file 'BookingsDetails.fxml'.";
-
-
-
         tfBookingId.setEditable(false);  //make text fields non-editable
         tfBookingDate.setEditable(false);
         tfBookingNo.setEditable(false);
@@ -181,11 +141,12 @@ public class BookingsDetailsController {
         tfPackageId.setEditable(false);
         btnEdit.setDisable(false);
         btnSave.setDisable(true);
-        btnAddBookings.setDisable(true);
+
 
     }
 
     public void displayBookingsDetails(Bookings bookings) {
+        this.booking = bookings;
         tfBookingId.setText(bookings.getBookingId() + "");
         tfBookingDate.setText(bookings.getBookingDate() + "");
         tfBookingNo.setText(bookings.getBookingNo() + "");
@@ -194,9 +155,17 @@ public class BookingsDetailsController {
         tfTripTypeId.setText(bookings.getTripTypeId() + "");
         tfPackageId.setText(bookings.getPackageId() + "");
 
+        ObservableList<Customer> customers = FXCollections.observableArrayList();
+        customers = CustomerDBHandler.getCustomers("");
+        Customer selectedCustomer = null;
+        selectedCustomer = CustomerDBHandler.getCustomers(String.valueOf(bookings.getCustomerId())).get(0);
+
+        cboCustomerID.setItems(customers);
+        cboCustomerID.getSelectionModel().select(selectedCustomer);
 
     }
 
 
 }
+
 

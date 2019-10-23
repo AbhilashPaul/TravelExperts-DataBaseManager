@@ -71,7 +71,7 @@ public class HomeController {
     //when user clicks on customer button, load package layout on right pane
     @FXML
     void onActionBtnPackages(ActionEvent event) throws IOException {
-        Parent packageRoot = FXMLLoader.load(getClass().getResource("../views/package.fxml"));
+        Parent packageRoot = FXMLLoader.load(getClass().getResource("../views/TravelPackage.fxml"));
         displayPane.getChildren().clear();
         displayPane.getChildren().addAll(packageRoot);
 
@@ -87,7 +87,7 @@ public class HomeController {
 
     @FXML
     void onActionBtnBookings(ActionEvent event) throws IOException {
-        Parent agentRoot = FXMLLoader.load(getClass().getResource("../views/Bookings.fxml"));
+        Parent agentRoot = FXMLLoader.load(getClass().getResource("../views/Booking.fxml"));
         displayPane.getChildren().clear();
         displayPane.getChildren().addAll(agentRoot);
     }

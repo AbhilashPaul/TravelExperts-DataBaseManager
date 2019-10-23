@@ -20,9 +20,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-;
-
-
 public class PackageDetailsController {
 
     @FXML // ResourceBundle that was given to the FXMLLoader
@@ -37,14 +34,14 @@ public class PackageDetailsController {
     @FXML // fx:id="tfPackageName"
     private TextField tfPackageName; // Value injected by FXMLLoader
 
+    @FXML // fx:id="tfPackageDescripion"
+    private TextField tfPackageDescripion; // Value injected by FXMLLoader
+
     @FXML // fx:id="tfPackageStartDate"
     private TextField tfPackageStartDate; // Value injected by FXMLLoader
 
     @FXML // fx:id="tfPackageEndDate"
     private TextField tfPackageEndDate; // Value injected by FXMLLoader
-
-    @FXML // fx:id="tfPackageDescripion"
-    private TextField tfPackageDescripion; // Value injected by FXMLLoader
 
     @FXML // fx:id="tfPackageBasePrice"
     private TextField tfPackageBasePrice; // Value injected by FXMLLoader
@@ -62,42 +59,7 @@ public class PackageDetailsController {
     private Button btnSave; // Value injected by FXMLLoader
 
     @FXML
-    private Button btnAddPackage;
-
-    @FXML
-    void onActionBtnAddPackage(ActionEvent event) throws SQLException {
-        btnAddPackage.setDisable(true);
-        btnSave.setDisable(true);
-        btnEdit.setDisable(true);
-        String sql = "Insert into packages (PackageId,PkgName,PkgStartDate,PkgEndDate,PkgDesc,PkgBasePrice,PkgAgencyCommission,TriptypeId) Values (?,?,?,?,?,?,?,?) ";
-        int rows;
-        Connection connection = DBConnectionManager.getDBConnection();
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, Integer.parseInt(tfPackageId.getText()));
-            statement.setString(2, tfPackageName.getText());
-            statement.setDate(3, Date.valueOf(tfPackageStartDate.getText()));
-            statement.setDate(4, Date.valueOf(tfPackageEndDate.getText()));
-            statement.setString(5, tfPackageDescripion.getText());
-            statement.setDouble(6, Double.parseDouble(tfPackageBasePrice.getText()));
-            statement.setDouble(7, Double.parseDouble(tfPackageAgencyCommission.getText()));
-            statement.setString(8, tfTripTypeId.getText());
-            rows = statement.executeUpdate();
-        }
-        connection.close();
-        if (rows == 0)
-        {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Insertion failed, contact tech support", ButtonType.OK);
-            alert.show();
-        }
-        else
-        {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Insertion successful", ButtonType.OK);
-            alert.show();
-        }
-    }
-
-    @FXML
-    void onActionBtnEdit(ActionEvent event) throws SQLException {
+    void onActionBtnEdit(ActionEvent event) {
         btnEdit.setDisable(true);
         tfPackageId.setEditable(true);
         tfPackageName.setEditable(true);
@@ -108,13 +70,11 @@ public class PackageDetailsController {
         tfPackageAgencyCommission.setEditable(true);
         tfTripTypeId.setEditable(true);
         btnSave.setDisable(false);
-        btnAddPackage.setDisable(false);
 
     }
 
-
     @FXML
-    void onActionBtnSave(ActionEvent event)  throws SQLException {
+    void onActionBtnSave(ActionEvent event) throws SQLException {
         btnSave.setDisable(true);
         btnEdit.setDisable(true);
         String sql = "UPDATE `packages` SET `PkgName`=? , `PkgStartDate`=? , `PkgEndDate` =?, `PkgDesc` =?, `PkgBasePrice` =?, `PkgAgencyCommission`=?, `TriptypeId` = ? WHERE `PackageId`= ?";
@@ -144,19 +104,18 @@ public class PackageDetailsController {
         }
     }
 
-
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
         assert tfPackageId != null : "fx:id=\"tfPackageId\" was not injected: check your FXML file 'packagedetails.fxml'.";
         assert tfPackageName != null : "fx:id=\"tfPackageName\" was not injected: check your FXML file 'packagedetails.fxml'.";
+        assert tfPackageDescripion != null : "fx:id=\"tfPackageDescripion\" was not injected: check your FXML file 'packagedetails.fxml'.";
         assert tfPackageStartDate != null : "fx:id=\"tfPackageStartDate\" was not injected: check your FXML file 'packagedetails.fxml'.";
         assert tfPackageEndDate != null : "fx:id=\"tfPackageEndDate\" was not injected: check your FXML file 'packagedetails.fxml'.";
-        assert tfPackageDescripion != null : "fx:id=\"tfPackageDescripion\" was not injected: check your FXML file 'packagedetails.fxml'.";
         assert tfPackageBasePrice != null : "fx:id=\"tfPackageBasePrice\" was not injected: check your FXML file 'packagedetails.fxml'.";
         assert tfPackageAgencyCommission != null : "fx:id=\"tfPackageAgencyCommission\" was not injected: check your FXML file 'packagedetails.fxml'.";
+        assert tfTripTypeId != null : "fx:id=\"tfTripTypeId\" was not injected: check your FXML file 'packagedetails.fxml'.";
         assert btnEdit != null : "fx:id=\"btnEdit\" was not injected: check your FXML file 'packagedetails.fxml'.";
         assert btnSave != null : "fx:id=\"btnSave\" was not injected: check your FXML file 'packagedetails.fxml'.";
-
         tfPackageId.setEditable(false);  //make text fields non-editable
         tfPackageName.setEditable(false);
         tfPackageStartDate.setEditable(false);
@@ -167,21 +126,22 @@ public class PackageDetailsController {
         tfTripTypeId.setEditable(false);
         btnEdit.setDisable(false);          //enable edit button
         btnSave.setDisable(true);
-        btnAddPackage.setDisable(true);
-    }
-
-    public void displayPackageDetails(TravelPackage travelPackage) {
-        tfPackageId.setText(travelPackage.getPkgId() + "");
-        tfPackageName.setText(travelPackage.getPkgName() + "");
-        tfPackageStartDate.setText(travelPackage.getPkgStartDate() + "");
-        tfPackageEndDate.setText(travelPackage.getPkgEndDate()   + "");
-        tfPackageDescripion.setText(travelPackage.getPkgDesc());
-        tfPackageBasePrice.setText(travelPackage.getPkgBasePrice() + "");
-        tfPackageAgencyCommission.setText(travelPackage.getPkgCommission() + "");
-        tfTripTypeId.setText(travelPackage.getPkgTripType() + "");
-
     }
 
 
-}
+        public void displayPackageDetails(TravelPackage travelPackage) {
+            tfPackageId.setText(travelPackage.getPkgId() + "");
+            tfPackageName.setText(travelPackage.getPkgName() + "");
+            tfPackageStartDate.setText(travelPackage.getPkgStartDate() + "");
+            tfPackageEndDate.setText(travelPackage.getPkgEndDate()   + "");
+            tfPackageDescripion.setText(travelPackage.getPkgDesc());
+            tfPackageBasePrice.setText(travelPackage.getPkgBasePrice() + "");
+            tfPackageAgencyCommission.setText(travelPackage.getPkgCommission() + "");
+            tfTripTypeId.setText(travelPackage.getPkgTripType() + "");
+
+        }
+
+
+
+    }
 

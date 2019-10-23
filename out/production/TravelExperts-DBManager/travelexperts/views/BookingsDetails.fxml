@@ -1,56 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.*?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="316.0" prefWidth="608.0" style="-fx-background-color: #CDB599FF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.controllers.BookingsDetailsController">
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="597.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.controllers.BookingsDetailsController">
    <children>
-      <TextField fx:id="tfBookingId" layoutX="141.0" layoutY="27.0" prefHeight="25.0" prefWidth="64.0" />
-      <Label layoutX="247.0" layoutY="79.0" text="Traveler Count">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <TextField fx:id="tfTravelerCount" layoutX="371.0" layoutY="75.0" prefHeight="25.0" prefWidth="72.0" />
-      <Label layoutX="136.0" layoutY="120.0" text="Customer Id">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <Button fx:id="btnAddBookings" layoutX="254.0" layoutY="230.0" mnemonicParsing="false" onAction="#onActionBtnAddBookings" prefHeight="30.0" prefWidth="76.0" style="-fx-background-color: #B1624EFF;" text="Add ">
-         <font>
-            <Font size="14.0" />
-         </font></Button>
-      <Button fx:id="btnSave" layoutX="507.0" layoutY="224.0" mnemonicParsing="false" onAction="#onActionBtnSave" style="-fx-background-color: #B1624EFF;" text="Save">
-         <font>
-            <Font size="14.0" />
-         </font></Button>
-      <TextField fx:id="tfTripTypeId" layoutX="138.0" layoutY="172.0" prefHeight="25.0" prefWidth="65.0" />
-      <Label layoutX="249.0" layoutY="175.0" text="Package Id">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <TextField fx:id="tfPackageId" layoutX="371.0" layoutY="172.0" prefHeight="25.0" prefWidth="58.0" />
-      <TextField fx:id="tfCustomerId" layoutX="257.0" layoutY="118.0" prefHeight="25.0" prefWidth="51.0" />
-      <Label layoutX="24.0" layoutY="30.0" text="Booking Id">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <Label layoutX="21.0" layoutY="175.0" text="Trip Type Id">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <Label layoutX="21.0" layoutY="79.0" text="Booking No">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <TextField fx:id="tfBookingNo" layoutX="137.0" layoutY="75.0" prefHeight="25.0" prefWidth="67.0" />
-      <Button fx:id="btnEdit" layoutX="13.0" layoutY="230.0" mnemonicParsing="false" onAction="#onActionBtnEdit" style="-fx-background-color: #B1624EFF;" text="Edit">
-         <font>
-            <Font size="14.0" />
-         </font></Button>
-      <Label layoutX="250.0" layoutY="31.0" text="Booking Date">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <TextField fx:id="tfBookingDate" layoutX="371.0" layoutY="27.0" />
+      <AnchorPane layoutX="95.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="316.0" prefWidth="608.0" style="-fx-background-color: #efefef;">
+         <children>
+            <TextField fx:id="tfBookingId" layoutX="141.0" layoutY="27.0" prefHeight="25.0" prefWidth="64.0" />
+            <Label layoutX="247.0" layoutY="79.0" text="Traveler Count">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfTravelerCount" layoutX="371.0" layoutY="75.0" prefHeight="25.0" prefWidth="72.0" />
+            <Label layoutX="136.0" layoutY="120.0" text="Customer Id">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnSave" layoutX="310.0" layoutY="239.0" mnemonicParsing="false" onAction="#onActionBtnSave" style="-fx-background-color: #373737;" text="Save" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <TextField fx:id="tfTripTypeId" layoutX="138.0" layoutY="172.0" prefHeight="25.0" prefWidth="65.0" />
+            <Label layoutX="249.0" layoutY="175.0" text="Package Id">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfPackageId" layoutX="371.0" layoutY="172.0" prefHeight="25.0" prefWidth="58.0" />
+            <TextField fx:id="tfCustomerId" layoutX="257.0" layoutY="118.0" prefHeight="25.0" prefWidth="51.0" />
+            <Label layoutX="24.0" layoutY="30.0" text="Booking Id">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="21.0" layoutY="175.0" text="Trip Type Id">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="21.0" layoutY="79.0" text="Booking No">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfBookingNo" layoutX="137.0" layoutY="75.0" prefHeight="25.0" prefWidth="67.0" />
+            <Button fx:id="btnEdit" layoutX="141.0" layoutY="239.0" mnemonicParsing="false" onAction="#onActionBtnEdit" style="-fx-background-color: #373737;" text="Edit" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Label layoutX="250.0" layoutY="31.0" text="Booking Date">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfBookingDate" layoutX="371.0" layoutY="27.0" />
+            <ComboBox fx:id="cboCustomerID" layoutX="354.0" layoutY="128.0" prefWidth="150.0" />
+         </children>
+      </AnchorPane>
+      <ComboBox prefWidth="150.0" />
    </children>
 </AnchorPane>
