@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import travelexperts.models.Agent;
 import travelexperts.models.Customer;
+import travelexperts.utils.InputValidator;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,7 +22,7 @@ public class CustomerDBHandler {
         //if there is no user input, retrieve the full customer list
         if (searchString == " "){
             query = "SELECT * FROM customers ORDER BY CustFirstName;";
-        }else if(isNumeric(searchString)){                              //if user enters a numeric value, use it as customer id
+        }else if(InputValidator.isNumeric(searchString)){                              //if user enters a numeric value, use it as customer id
             query = "SELECT * FROM customers WHERE CustomerId = ?;";    //use sql query to retrieve customer info using specific customer id
         } else{                                                         //if user enters a text as input
             String[] search =searchString.split(" ");            //split the strings in the text input
@@ -43,7 +44,7 @@ public class CustomerDBHandler {
 
             //bind parameters to the sql query depending on the kind of input received
             if (searchString != " ") {                              //check for non-empty use input
-                if(isNumeric(searchString)){                        //if user entered an integer value
+                if(InputValidator.isNumeric(searchString)){                        //if user entered an integer value
                     int id = Integer.parseInt(searchString);
                     statement.setString(1,String.valueOf(id));
                 }else{                                              //if user entered a text as input
@@ -115,16 +116,6 @@ public class CustomerDBHandler {
             System.out.println(ex.getStackTrace());
             return false;
         }
-    }
-
-    //method t verify if an input is an integer value
-    public static boolean isNumeric(String strNum) {
-        try {
-            int d = Integer.parseInt(strNum);
-        } catch (NumberFormatException | NullPointerException nfe) {
-            return false;
-        }
-        return true;
     }
 
     public static Customer getCustomerDetails(int id) {

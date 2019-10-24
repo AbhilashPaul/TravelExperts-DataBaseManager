@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane prefHeight="679.0" prefWidth="726.0" style="-fx-background-color: #CDB599FF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.controllers.InvoiceController">
+<Pane prefHeight="679.0" prefWidth="834.0" style="-fx-background-color: #bdbdbd;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.controllers.InvoiceController">
     <children>
         <SplitPane fx:id="invoicePane" dividerPositions="0.34845360824742266, 0.7402061855670103" layoutX="89.0" layoutY="75.0" maxHeight="580.0" maxWidth="525.0" minHeight="430.0" minWidth="450.0" orientation="VERTICAL" prefHeight="487.0" prefWidth="451.0" style="-fx-background-color: #fff;">
             <items>
@@ -42,7 +42,7 @@
                         <Label layoutX="346.0" layoutY="44.0" text="1155 8th Ave SW" />
                         <Label layoutX="329.0" layoutY="85.0" prefHeight="20.0" prefWidth="107.0" text="Phone: 4032719873" />
                         <Label fx:id="lbInvoiceNumber" layoutX="101.0" layoutY="144.0" text="ref" />
-                        <Label fx:id="lbCustEmail" layoutX="63.0" layoutY="113.0" prefHeight="17.0" prefWidth="117.0" text="abc@xyz.com" />
+                        <Label fx:id="lbCustEmail" layoutX="63.0" layoutY="113.0" prefHeight="17.0" prefWidth="150.0" text="abc@xyz.com" />
                         <Label layoutX="331.0" layoutY="64.0" text="Calgary, AB T2P1N3" />
                         <Label fx:id="lbCustPhone" layoutX="63.0" layoutY="94.0" text="4034567899" />
                     </children>
@@ -73,7 +73,7 @@
                             </font>
                         </Label>
                         <Label fx:id="lbgst" layoutX="350.0" layoutY="36.0" text="0.00" />
-                        <Separator layoutX="234.0" layoutY="71.0" prefHeight="3.0" prefWidth="140.0" style="-fx-background-color: #000;" />
+                        <Separator layoutX="234.0" layoutY="71.0" prefHeight="1.0" prefWidth="150.0" style="-fx-background-color: #000;" />
                         <Label layoutX="258.0" layoutY="85.0" text="Grand Total:">
                             <font>
                                 <Font name="System Bold" size="14.0" />
@@ -89,12 +89,12 @@
                 <Font name="Arial Bold" size="14.0" />
             </font>
         </Label>
-        <Button fx:id="btnPrint" cancelButton="true" layoutX="278.0" layoutY="575.0" mnemonicParsing="false" onAction="#onActionBtnPrint" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: #CE201C;" text="Print " textFill="WHITE">
+        <Button fx:id="btnPrint" cancelButton="true" layoutX="278.0" layoutY="575.0" mnemonicParsing="false" onAction="#onActionBtnPrint" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: #373737;" text="Print " textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
         <ComboBox fx:id="cmbBookingId" layoutX="245.0" layoutY="39.0" prefHeight="25.0" prefWidth="140.0" promptText="Select Booking ID" />
-        <Text fx:id="txtJobStatus" layoutX="363.0" layoutY="594.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+        <Text fx:id="txtJobStatus" layoutX="363.0" layoutY="594.0" strokeType="OUTSIDE" strokeWidth="0.0" />
     </children>
 </Pane>

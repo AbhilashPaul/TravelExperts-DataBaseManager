@@ -7,11 +7,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="customerPane" prefHeight="640.0" prefWidth="798.0" style="-fx-background-color: #d5edec;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.controllers.CustomerController">
+<AnchorPane fx:id="customerPane" prefHeight="640.0" prefWidth="798.0" style="-fx-background-color: #bdbdbd;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.controllers.CustomerController">
    <children>
       <TextField fx:id="txtSearch" layoutX="42.0" layoutY="58.0" prefHeight="25.0" prefWidth="190.0" />
-      <Button fx:id="btnSearch" layoutX="244.0" layoutY="58.0" mnemonicParsing="false" onAction="#onActionBtnSearch" styleClass="btn-primary" text="Search" />
-      <TableView fx:id="tableCustomer" layoutX="42.0" layoutY="106.0" prefHeight="425.0" prefWidth="638.0" style="-fx-background-color: #d5edec;">
+      <Button fx:id="btnSearch" layoutX="244.0" layoutY="58.0" mnemonicParsing="false" onAction="#onActionBtnSearch" style="-fx-background-color: #373737;" styleClass="btn-primary" text="Search" textFill="WHITE" />
+      <TableView fx:id="tableCustomer" layoutX="42.0" layoutY="106.0" prefHeight="497.0" prefWidth="647.0" style="-fx-background-color: #efefef;">
         <columns>
           <TableColumn fx:id="col_id" editable="false" prefWidth="45.0" text="ID" />
           <TableColumn fx:id="col_firstname" editable="false" prefWidth="109.0" text="First Name" />

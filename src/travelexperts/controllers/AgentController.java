@@ -1,5 +1,6 @@
 package travelexperts.controllers;
 
+import javafx.scene.control.*;
 import travelexperts.dbhandler.AgentDBHandler;
 import travelexperts.models.AgenciesUtil;
 import travelexperts.models.Agent;
@@ -9,11 +10,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import travelexperts.utils.InputValidator;
 
 import java.util.HashMap;
 
@@ -61,34 +60,79 @@ public class AgentController {
     //Save button click event handler
     @FXML
     void onActionBtnSave(ActionEvent event) {
-        //get values from gui
-        Agent agent = new Agent();
-        agent.setAgentID(cboAgentId.valueProperty().getValue());
-        agent.setAgentFirstName(tfFirstName.getText());
-        agent.setAgentMidInitial(tfMiddleInitial.getText());
-        agent.setAgentLastName(tfLastName.getText());
-        agent.setAgentEmail(tfEmail.getText());
-        agent.setAgentPhoneNumber(tfPhone.getText());
-        //create agency name and id hashmap
-        HashMap<Integer,String> agencies = AgenciesUtil.createAgencyList();
-        if(agencies.containsValue(tfAgency.getText())){                                     //if the agency name exist in the hashmap,
-            agent.setAgentAgencyID(AgenciesUtil.getAgencyId(agencies,tfAgency.getText()));  //get the agency id for the agency name
-        }else{                                                                              //agency name is not found in hashmap
-            agent.setAgentAgencyID(0);                                                      //set agency id to 0,
-        }
-        agent.setAgentPosition(tfPosition.getText());
-        //update the agent record in database
-        AgentDBHandler.updateAgentDetails(agent);
-        if(AgentDBHandler.updateAgentDetails(agent)){
-            txtUserFeedback.setFill(Color.GREEN);
-            txtUserFeedback.setText("Successfully updated agent details!");
-            btnSave.setDisable(true);
-            setTextFieldsEditable(false);
-        }else{
-            txtUserFeedback.setFill(Color.MAROON);
-            txtUserFeedback.setText("Error while trying to update. Please try again!");
+        //create an agent object and update the agent record after validating inputs from gui
+        if(validateInputs()) {
+            Agent agent = new Agent();
+            agent.setAgentID(cboAgentId.valueProperty().getValue());
+            agent.setAgentFirstName(tfFirstName.getText());
+            agent.setAgentLastName(tfLastName.getText());
+            agent.setAgentMidInitial(tfMiddleInitial.getText());
+            agent.setAgentEmail(tfEmail.getText());
+            agent.setAgentPhoneNumber(tfPhone.getText());
+            //create agency name and id hashmap
+            HashMap<Integer, String> agencies = AgenciesUtil.createAgencyList();
+            if (agencies.containsValue(tfAgency.getText())) {                                     //if the agency name exist in the hashmap,
+                agent.setAgentAgencyID(AgenciesUtil.getAgencyId(agencies, tfAgency.getText()));  //get the agency id for the agency name
+            } else {                                                                              //agency name is not found in hashmap
+                agent.setAgentAgencyID(0);                                                      //set agency id to 0,
+            }
+            agent.setAgentPosition(tfPosition.getText());
+
+            //update the agent record in database
+            AgentDBHandler.updateAgentDetails(agent);
+            if (AgentDBHandler.updateAgentDetails(agent)) {
+                txtUserFeedback.setFill(Color.GREEN);
+                txtUserFeedback.setText("Successfully updated agent details!");
+                btnSave.setDisable(true);
+                setTextFieldsEditable(false);
+            } else {
+                txtUserFeedback.setFill(Color.MAROON);
+                txtUserFeedback.setText("Error while trying to update. Please try again!");
+            }
         }
     }
+
+    //this method is used to validate inputs before updating database
+    private boolean validateInputs(){
+
+        if(InputValidator.isPresent(tfFirstName) &&
+            InputValidator.isPresent(tfLastName) &&
+            InputValidator.isTextOnly(tfFirstName.getText()) &&
+            InputValidator.isTextOnly(tfLastName.getText())){
+
+            if(InputValidator.isPresent(tfEmail) &&
+                    InputValidator.validateEmail(tfEmail.getText())){
+
+                if(InputValidator.isPresent(tfPhone) &&
+                        InputValidator.validatePhoneNumber(tfPhone.getText())){
+
+                    if(InputValidator.isPresent(tfPosition) &&
+                            InputValidator.isTextOnly(tfPosition.getText())){
+                        return true;
+                    }else{
+                        Alert alert = new Alert(Alert.AlertType.ERROR, "Please enter valid agent position!", ButtonType.OK);
+                        alert.show();
+                        return false;
+                    }
+
+                }else{
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Please enter valid Phone Number!", ButtonType.OK);
+                    alert.show();
+                    return false;
+                }
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Please enter valid Email!", ButtonType.OK);
+                alert.show();
+                return false;
+            }
+
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please enter valid First Name and Last Name!", ButtonType.OK);
+            alert.show();
+            return false;
+        }
+    }
+
 
     //this method retrieves agent ids from database and binds them to combo box
     private void dataBindComboBox() {
