@@ -18,14 +18,14 @@
             <items>
                 <AnchorPane>
                     <children>
-                        <Label fx:id="lbAddress1" layoutX="9.0" layoutY="49.0" text="Address Line 1" />
-                        <Label fx:id="lbAddress2" layoutX="9.0" layoutY="70.0" text="Address Line 2" />
+                        <Label fx:id="lbAddress1" layoutX="9.0" layoutY="49.0" />
+                        <Label fx:id="lbAddress2" layoutX="9.0" layoutY="70.0" />
                         <Label layoutX="6.0" layoutY="142.0" text="Invoice Ref:">
                             <font>
                                 <Font name="System Bold" size="14.0" />
                             </font>
                         </Label>
-                        <Label fx:id="lbName" layoutX="8.0" layoutY="20.0" prefHeight="20.0" prefWidth="150.0" text="Name">
+                        <Label fx:id="lbName" layoutX="8.0" layoutY="20.0" prefHeight="20.0" prefWidth="150.0">
                             <font>
                                 <Font name="System Bold" size="12.0" />
                             </font>
@@ -41,10 +41,10 @@
                         </Label>
                         <Label layoutX="346.0" layoutY="44.0" text="1155 8th Ave SW" />
                         <Label layoutX="329.0" layoutY="85.0" prefHeight="20.0" prefWidth="107.0" text="Phone: 4032719873" />
-                        <Label fx:id="lbInvoiceNumber" layoutX="101.0" layoutY="144.0" text="ref" />
-                        <Label fx:id="lbCustEmail" layoutX="63.0" layoutY="113.0" prefHeight="17.0" prefWidth="150.0" text="abc@xyz.com" />
+                        <Label fx:id="lbInvoiceNumber" layoutX="101.0" layoutY="144.0" />
+                        <Label fx:id="lbCustEmail" layoutX="63.0" layoutY="113.0" prefHeight="17.0" prefWidth="150.0" />
                         <Label layoutX="331.0" layoutY="64.0" text="Calgary, AB T2P1N3" />
-                        <Label fx:id="lbCustPhone" layoutX="63.0" layoutY="94.0" text="4034567899" />
+                        <Label fx:id="lbCustPhone" layoutX="63.0" layoutY="94.0" />
                     </children>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="138.0" prefWidth="600.0">
@@ -66,20 +66,20 @@
                                 <Font name="System Bold" size="12.0" />
                             </font>
                         </Label>
-                        <Label fx:id="lbTotal" layoutX="349.0" layoutY="16.0" text="0.00" />
+                        <Label fx:id="lbTotal" layoutX="349.0" layoutY="16.0" />
                         <Label layoutX="300.0" layoutY="38.0" text="GST:">
                             <font>
                                 <Font name="System Bold" size="12.0" />
                             </font>
                         </Label>
-                        <Label fx:id="lbgst" layoutX="350.0" layoutY="36.0" text="0.00" />
-                        <Separator layoutX="234.0" layoutY="71.0" prefHeight="1.0" prefWidth="150.0" style="-fx-background-color: #000;" />
+                        <Label fx:id="lbgst" layoutX="350.0" layoutY="36.0" />
+                        <Separator layoutX="257.0" layoutY="71.0" prefHeight="1.0" prefWidth="150.0" style="-fx-background-color: #000;" />
                         <Label layoutX="258.0" layoutY="85.0" text="Grand Total:">
                             <font>
                                 <Font name="System Bold" size="14.0" />
                             </font>
                         </Label>
-                        <Label fx:id="lbGrandTotal" layoutX="350.0" layoutY="87.0" text="0.00" />
+                        <Label fx:id="lbGrandTotal" layoutX="350.0" layoutY="87.0" />
                     </children>
                 </AnchorPane>
             </items>

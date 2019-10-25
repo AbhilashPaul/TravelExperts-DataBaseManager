@@ -123,6 +123,7 @@ public class BookingsDetailsController {
         }
         else
         {
+            btnEdit.setDisable(false);
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Update successful", ButtonType.OK);
             alert.show();
         }
