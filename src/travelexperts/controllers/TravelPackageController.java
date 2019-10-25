@@ -110,18 +110,17 @@ public class TravelPackageController {
     @FXML
     void onActionBtnAddPackage(ActionEvent event) throws SQLException {
 
-        String sql = "Insert into packages (PackageId,PkgName,PkgStartDate,PkgEndDate,PkgDesc,PkgBasePrice,PkgAgencyCommission,TriptypeId) Values (?,?,?,?,?,?,?,?) ";
+        String sql = "Insert into packages (PkgName,PkgStartDate,PkgEndDate,PkgDesc,PkgBasePrice,PkgAgencyCommission,TriptypeId) Values (?,?,?,?,?,?,?) ";
         int rows;
         Connection connection = DBConnectionManager.getDBConnection();
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, Integer.parseInt(tfPackageId.getText()));
-            statement.setString(2, tfPackageName.getText());
-            statement.setDate(3, Date.valueOf(tfPackageStartDate.getText()));
-            statement.setDate(4, Date.valueOf(tfPackageEndDate.getText()));
-            statement.setString(5, tfPackageDescripion.getText());
-            statement.setDouble(6, Double.parseDouble(tfPackageBasePrice.getText()));
-            statement.setDouble(7, Double.parseDouble(tfPackageAgencyCommission.getText()));
-            statement.setString(8, tfTripTypeId.getText());
+            statement.setString(1, tfPackageName.getText());
+            statement.setDate(2, Date.valueOf(tfPackageStartDate.getText()));
+            statement.setDate(3, Date.valueOf(tfPackageEndDate.getText()));
+            statement.setString(4, tfPackageDescripion.getText());
+            statement.setDouble(5, Double.parseDouble(tfPackageBasePrice.getText()));
+            statement.setDouble(6, Double.parseDouble(tfPackageAgencyCommission.getText()));
+            statement.setString(7, tfTripTypeId.getText());
             rows = statement.executeUpdate();
         }
         connection.close();
