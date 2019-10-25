@@ -6,18 +6,20 @@ package travelexperts.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.*;
 import travelexperts.dbhandler.DBConnectionManager;
 import travelexperts.models.TravelPackage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class PackageDetailsController {
@@ -37,12 +39,6 @@ public class PackageDetailsController {
     @FXML // fx:id="tfPackageDescripion"
     private TextField tfPackageDescripion; // Value injected by FXMLLoader
 
-    @FXML // fx:id="tfPackageStartDate"
-    private TextField tfPackageStartDate; // Value injected by FXMLLoader
-
-    @FXML // fx:id="tfPackageEndDate"
-    private TextField tfPackageEndDate; // Value injected by FXMLLoader
-
     @FXML // fx:id="tfPackageBasePrice"
     private TextField tfPackageBasePrice; // Value injected by FXMLLoader
 
@@ -59,12 +55,26 @@ public class PackageDetailsController {
     private Button btnSave; // Value injected by FXMLLoader
 
     @FXML
+    private DatePicker dpTripStart;
+
+    @FXML
+    private DatePicker dpTripEnd;
+
+    @FXML
+    void onActionDatePickerTripEnd(ActionEvent event) {
+        LocalDate ld = dpTripStart.getValue();
+    }
+
+    @FXML
+    void onActionDatePickerTripStart(ActionEvent event) {
+        LocalDate ld = dpTripStart.getValue();
+    }
+
+    @FXML
     void onActionBtnEdit(ActionEvent event) {
         btnEdit.setDisable(true);
         tfPackageId.setEditable(true);
         tfPackageName.setEditable(true);
-        tfPackageStartDate.setEditable(true);
-        tfPackageEndDate.setEditable(true);
         tfPackageDescripion.setEditable(true);
         tfPackageBasePrice.setEditable(true);
         tfPackageAgencyCommission.setEditable(true);
@@ -74,7 +84,7 @@ public class PackageDetailsController {
     }
 
     @FXML
-    void onActionBtnSave(ActionEvent event) throws SQLException {
+    void onActionBtnSave(ActionEvent event) throws SQLException, IOException {
         btnSave.setDisable(true);
         btnEdit.setDisable(true);
         String sql = "UPDATE `packages` SET `PkgName`=? , `PkgStartDate`=? , `PkgEndDate` =?, `PkgDesc` =?, `PkgBasePrice` =?, `PkgAgencyCommission`=?, `TriptypeId` = ? WHERE `PackageId`= ?";
@@ -83,8 +93,8 @@ public class PackageDetailsController {
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(8, Integer.parseInt(tfPackageId.getText()));
             statement.setString(1, tfPackageName.getText());
-            statement.setDate(2, Date.valueOf(tfPackageStartDate.getText()));
-            statement.setDate(3, Date.valueOf(tfPackageEndDate.getText()));
+            statement.setDate(2, Date.valueOf(dpTripStart.getValue()));
+            statement.setDate(3, Date.valueOf(dpTripEnd.getValue()));
             statement.setString(4, tfPackageDescripion.getText());
             statement.setDouble(5, Double.parseDouble(tfPackageBasePrice.getText()));
             statement.setDouble(6, Double.parseDouble(tfPackageAgencyCommission.getText()));
@@ -109,8 +119,6 @@ public class PackageDetailsController {
         assert tfPackageId != null : "fx:id=\"tfPackageId\" was not injected: check your FXML file 'packagedetails.fxml'.";
         assert tfPackageName != null : "fx:id=\"tfPackageName\" was not injected: check your FXML file 'packagedetails.fxml'.";
         assert tfPackageDescripion != null : "fx:id=\"tfPackageDescripion\" was not injected: check your FXML file 'packagedetails.fxml'.";
-        assert tfPackageStartDate != null : "fx:id=\"tfPackageStartDate\" was not injected: check your FXML file 'packagedetails.fxml'.";
-        assert tfPackageEndDate != null : "fx:id=\"tfPackageEndDate\" was not injected: check your FXML file 'packagedetails.fxml'.";
         assert tfPackageBasePrice != null : "fx:id=\"tfPackageBasePrice\" was not injected: check your FXML file 'packagedetails.fxml'.";
         assert tfPackageAgencyCommission != null : "fx:id=\"tfPackageAgencyCommission\" was not injected: check your FXML file 'packagedetails.fxml'.";
         assert tfTripTypeId != null : "fx:id=\"tfTripTypeId\" was not injected: check your FXML file 'packagedetails.fxml'.";
@@ -118,8 +126,6 @@ public class PackageDetailsController {
         assert btnSave != null : "fx:id=\"btnSave\" was not injected: check your FXML file 'packagedetails.fxml'.";
         tfPackageId.setEditable(false);  //make text fields non-editable
         tfPackageName.setEditable(false);
-        tfPackageStartDate.setEditable(false);
-        tfPackageEndDate.setEditable(false);
         tfPackageDescripion.setEditable(false);
         tfPackageBasePrice.setEditable(false);
         tfPackageAgencyCommission.setEditable(false);
@@ -132,16 +138,20 @@ public class PackageDetailsController {
         public void displayPackageDetails(TravelPackage travelPackage) {
             tfPackageId.setText(travelPackage.getPkgId() + "");
             tfPackageName.setText(travelPackage.getPkgName() + "");
-            tfPackageStartDate.setText(travelPackage.getPkgStartDate() + "");
-            tfPackageEndDate.setText(travelPackage.getPkgEndDate()   + "");
             tfPackageDescripion.setText(travelPackage.getPkgDesc());
+            dpTripStart.setValue(LOCAL_DATE(travelPackage.getPkgStartDate().toString()));
+            dpTripEnd.setValue(LOCAL_DATE(travelPackage.getPkgEndDate().toString()));
             tfPackageBasePrice.setText(travelPackage.getPkgBasePrice() + "");
             tfPackageAgencyCommission.setText(travelPackage.getPkgCommission() + "");
             tfTripTypeId.setText(travelPackage.getPkgTripType() + "");
 
         }
 
-
+    public static final LocalDate LOCAL_DATE (String dateString){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate localDate = LocalDate.parse(dateString, formatter);
+        return localDate;
+    }
 
     }
 

@@ -2,23 +2,24 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="597.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.controllers.BookingsDetailsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="690.0" style="-fx-background-color: #bdbdbd;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.controllers.BookingsDetailsController">
    <children>
-      <AnchorPane layoutX="95.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="316.0" prefWidth="608.0" style="-fx-background-color: #efefef;">
+      <AnchorPane layoutX="66.0" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="555.0" style="-fx-background-color: #efefef;">
          <children>
-            <TextField fx:id="tfBookingId" layoutX="141.0" layoutY="27.0" prefHeight="25.0" prefWidth="64.0" />
+            <TextField fx:id="tfBookingId" layoutX="138.0" layoutY="27.0" prefHeight="25.0" prefWidth="64.0" />
             <Label layoutX="247.0" layoutY="79.0" text="Traveler Count">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
             <TextField fx:id="tfTravelerCount" layoutX="371.0" layoutY="75.0" prefHeight="25.0" prefWidth="72.0" />
-            <Label layoutX="136.0" layoutY="120.0" text="Customer Id">
+            <Label layoutX="20.0" layoutY="131.0" text="Customer">
                <font>
                   <Font size="14.0" />
                </font>
@@ -35,7 +36,6 @@
                </font>
             </Label>
             <TextField fx:id="tfPackageId" layoutX="371.0" layoutY="172.0" prefHeight="25.0" prefWidth="58.0" />
-            <TextField fx:id="tfCustomerId" layoutX="257.0" layoutY="118.0" prefHeight="25.0" prefWidth="51.0" />
             <Label layoutX="24.0" layoutY="30.0" text="Booking Id">
                <font>
                   <Font size="14.0" />
@@ -62,10 +62,9 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="tfBookingDate" layoutX="371.0" layoutY="27.0" />
-            <ComboBox fx:id="cboCustomerID" layoutX="354.0" layoutY="128.0" prefWidth="150.0" />
+            <ComboBox fx:id="cboCustomerID" layoutX="135.0" layoutY="128.0" prefHeight="26.0" prefWidth="149.0" />
+            <DatePicker fx:id="dpBookingDate" layoutX="368.0" layoutY="28.0" prefHeight="26.0" prefWidth="122.0" />
          </children>
       </AnchorPane>
-      <ComboBox prefWidth="150.0" />
    </children>
 </AnchorPane>

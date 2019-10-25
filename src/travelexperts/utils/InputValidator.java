@@ -52,4 +52,10 @@ public class InputValidator {
         Pattern usernamePattern = Pattern.compile(patternString);
         return usernamePattern.matcher(username).matches();
     }
+
+    public static boolean validatePackageNameAndDescription(String text){
+        String patternString = "^[a-zA-Z0-9 ]*$";
+        Pattern textPattern = Pattern.compile(patternString);
+        return textPattern.matcher(text).matches();
+    }
 }

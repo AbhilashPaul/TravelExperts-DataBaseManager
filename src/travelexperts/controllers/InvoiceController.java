@@ -153,8 +153,8 @@ public class InvoiceController {
                         lbName.setText(customer.getCustomerFirstName() + " "+customer.getCustomerLastName());
                         lbAddress1.setText(customer.getCustomerAddress() + "");
                         lbAddress2.setText( addressLine2.toString());
-                        lbCustPhone.setText(customer.getCustomerHomePhone());
-                        lbCustEmail.setText(customer.getCustomerEmail());
+                        lbCustPhone.setText(customer.getCustomerHomePhone().trim());
+                        lbCustEmail.setText(customer.getCustomerEmail().trim());
                         lbInvoiceNumber.setText(invoiceRef+"-"+booking.getBookingId());
                         //lbEmail.setText(customer.getCustomerEmail());
                         //lbAddress4.setText(customer.getCustomerCountry() + "");

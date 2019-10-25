@@ -5,10 +5,9 @@
 package travelexperts.controllers;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -47,9 +46,6 @@ public class BookingsDetailsController {
     @FXML // fx:id="tfPackageId"
     private TextField tfPackageId; // Value injected by FXMLLoader
 
-    @FXML // fx:id="tfCustomerId"
-    private TextField tfCustomerId; // Value injected by FXMLLoader
-
     @FXML // fx:id="tfBookingNo"
     private TextField tfBookingNo; // Value injected by FXMLLoader
 
@@ -60,15 +56,17 @@ public class BookingsDetailsController {
     private TextField tfBookingDate; // Value injected by FXMLLoader
 
     @FXML
+    private DatePicker dpBookingDate;
+
+    @FXML
     private ComboBox<Customer> cboCustomerID;
 
     @FXML
     void onActionBtnEdit(ActionEvent event) {
         btnEdit.setDisable(true);
         tfBookingId.setEditable(true);
-        tfBookingDate.setEditable(true);
         tfTravelerCount.setEditable(true);
-        tfCustomerId.setEditable(true);
+        dpBookingDate.setEditable(true);
 
         if(this.booking.getPackageId() != 0){
             tfTripTypeId.setEditable(false);
@@ -86,14 +84,13 @@ public class BookingsDetailsController {
         btnEdit.setDisable(true);
         Integer packageId = null;
         String tripType =null;
+        packageId = Integer.parseInt(tfPackageId.getText());
 
-        if(tfPackageId.getText() != "" || Integer.parseInt(tfPackageId.getText()) != 0){
-            packageId = Integer.parseInt(tfPackageId.getText());
+
+        if(tfPackageId.getText() != null && packageId != 0){
+                tripType = TravelPackageDBHandler.gatPackageDetails(packageId).getPkgTripType();
+        }else{
             tripType = tfTripTypeId.getText();
-        }else {
-
-            tripType = TravelPackageDBHandler.gatPackageDetails(packageId).getPkgTripType();
-
         }
 
         String sql = "UPDATE `bookings` SET `BookingDate`=? , `BookingNo`=? ,  `TravelerCount` =?, `CustomerId` =?, `TriptypeId` = ?, `PackageId` =? WHERE `BookingId`= ?";
@@ -106,12 +103,16 @@ public class BookingsDetailsController {
         // System.out.println("Setting PackageID to "+Integer.parseInt(tfPackageId.getText()));
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(7, Integer.parseInt(tfBookingId.getText()));
-            statement.setDate(1, Date.valueOf(tfBookingDate.getText()));
+            statement.setDate(1, Date.valueOf(dpBookingDate.getValue()));
             statement.setString(2, tfBookingNo.getText());
             statement.setInt(3, Integer.parseInt(tfTravelerCount.getText()));
             statement.setInt(4, cboCustomerID.getSelectionModel().getSelectedItem().getCustomerID());
             statement.setString(5, tripType);
-            statement.setString (6, String.valueOf(packageId));
+            if (packageId != null && packageId != 0) {
+                statement.setInt(6, packageId);
+            } else {
+                statement.setNull(6, Types.INTEGER);
+            }
             rows = statement.executeUpdate();
         }
         connection.close();
@@ -133,10 +134,9 @@ public class BookingsDetailsController {
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
         tfBookingId.setEditable(false);  //make text fields non-editable
-        tfBookingDate.setEditable(false);
+        dpBookingDate.setEditable(false);
         tfBookingNo.setEditable(false);
         tfTravelerCount.setEditable(false);
-        tfCustomerId.setEditable(false);
         tfTripTypeId.setEditable(false);
         tfPackageId.setEditable(false);
         btnEdit.setDisable(false);
@@ -148,12 +148,11 @@ public class BookingsDetailsController {
     public void displayBookingsDetails(Bookings bookings) {
         this.booking = bookings;
         tfBookingId.setText(bookings.getBookingId() + "");
-        tfBookingDate.setText(bookings.getBookingDate() + "");
         tfBookingNo.setText(bookings.getBookingNo() + "");
         tfTravelerCount.setText(bookings.getTravelerCount() + "");
-        tfCustomerId.setText(bookings.getCustomerId() + "");
         tfTripTypeId.setText(bookings.getTripTypeId() + "");
         tfPackageId.setText(bookings.getPackageId() + "");
+        dpBookingDate.setValue(LOCAL_DATE(bookings.getBookingDate().toString()));
 
         ObservableList<Customer> customers = FXCollections.observableArrayList();
         customers = CustomerDBHandler.getCustomers("");
@@ -164,7 +163,11 @@ public class BookingsDetailsController {
         cboCustomerID.getSelectionModel().select(selectedCustomer);
 
     }
-
+    public static final LocalDate LOCAL_DATE (String dateString){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate localDate = LocalDate.parse(dateString, formatter);
+        return localDate;
+    }
 
 }
 

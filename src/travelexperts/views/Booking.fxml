@@ -13,9 +13,9 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.controllers.BookingController">
    <children>
-      <SplitPane dividerPositions="0.1903114186851211" prefHeight="160.0" prefWidth="200.0">
+      <SplitPane dividerPositions="0.21630615640599" prefHeight="676.0" prefWidth="722.0">
         <items>
-          <AnchorPane prefHeight="589.0" prefWidth="300.0">
+          <AnchorPane prefHeight="589.0" prefWidth="300.0" style="-fx-background-color: #bdbdbd;">
                <children>
                   <VBox prefHeight="308.0" prefWidth="70.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="50.0">
                      <children>
@@ -68,9 +68,9 @@
                   </VBox>
                </children>
             </AnchorPane>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#onActionBtnAddBookings" prefHeight="589.0" prefWidth="542.0" style="-fx-background-color: #efefef;">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#onActionBtnAddBookings" prefHeight="663.0" prefWidth="562.0" style="-fx-background-color: #efefef;">
                <children>
-                  <TableView fx:id="tableBookings" prefHeight="592.0" prefWidth="465.0">
+                  <TableView fx:id="tableBookings" prefHeight="663.0" prefWidth="562.0">
                      <columns>
                         <TableColumn fx:id="col_BookingId" prefWidth="117.0" text="Booking Id" />
                         <TableColumn fx:id="col_BookingDate" prefWidth="149.0" text="Booking Date" />

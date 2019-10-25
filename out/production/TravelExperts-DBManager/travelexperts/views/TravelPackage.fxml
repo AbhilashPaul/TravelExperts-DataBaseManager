@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane fx:id="tp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="737.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.controllers.TravelPackageController">
+<TabPane fx:id="tp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="737.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelexperts.controllers.TravelPackageController">
   <tabs>
     <Tab fx:id="tpPackages" text="Packages">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #bdbdbd;">
                <children>
-                  <TableView fx:id="tablePackage" layoutX="114.0" layoutY="83.0" prefHeight="321.0" prefWidth="562.0">
+                  <TableView fx:id="tablePackage" layoutX="63.0" layoutY="75.0" prefHeight="505.0" prefWidth="570.0">
                      <columns>
                         <TableColumn fx:id="col_pkgId" prefWidth="145.0" text="PackageId" />
                         <TableColumn fx:id="col_pkgName" prefWidth="186.0" text="Package Name" />
@@ -31,64 +31,58 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #bdbdbd;">
                <children>
-                  <Pane layoutX="37.0" layoutY="83.0" prefHeight="299.0" prefWidth="622.0" style="-fx-background-color: #efefef;">
+                  <Pane layoutX="37.0" layoutY="83.0" prefHeight="384.0" prefWidth="622.0" style="-fx-background-color: #efefef;">
                      <children>
-                        <Label layoutX="21.0" layoutY="33.0" text="Package Id">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
                         <Label layoutX="17.0" layoutY="78.0" text=" Description">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="23.0" layoutY="122.0" text="Start Date">
+                        <Label layoutX="23.0" layoutY="168.0" text="Start Date">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="22.0" layoutY="174.0" text="Base Price">
+                        <Label layoutX="22.0" layoutY="223.0" text="Base Price">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="333.0" layoutY="34.0" text=" Name">
+                        <Label layoutX="22.0" layoutY="30.0" text=" Name">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="335.0" layoutY="78.0" text="Trip Type Id">
+                        <Label layoutX="23.0" layoutY="117.0" text="Trip Type Id">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="335.0" layoutY="122.0" text="End Date">
+                        <Label layoutX="321.0" layoutY="168.0" text="End Date">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="334.0" layoutY="165.0" text="Commission">
+                        <Label layoutX="316.0" layoutY="224.0" text="Commission">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="tfPackageId" layoutX="126.0" layoutY="31.0" prefHeight="25.0" prefWidth="84.0" />
-                        <TextField fx:id="tfPackageDescripion" layoutX="126.0" layoutY="76.0" prefHeight="25.0" prefWidth="84.0" />
-                        <TextField fx:id="tfPackageStartDate" layoutX="126.0" layoutY="120.0" prefHeight="25.0" prefWidth="101.0" />
-                        <TextField fx:id="tfPackageBasePrice" layoutX="126.0" layoutY="172.0" prefHeight="25.0" prefWidth="84.0" />
-                        <TextField fx:id="tfPackageName" layoutX="446.0" layoutY="32.0" prefHeight="25.0" prefWidth="149.0" />
-                        <TextField fx:id="tfTripTypeId" layoutX="446.0" layoutY="76.0" />
-                        <TextField fx:id="tfPackageEndDate" layoutX="446.0" layoutY="120.0" />
-                        <TextField fx:id="tfPackageAgencyCommission" layoutX="446.0" layoutY="162.0" />
-                        <Button fx:id="btnAddPackage" layoutX="154.0" layoutY="225.0" mnemonicParsing="false" onAction="#onActionBtnAddPackage" style="-fx-background-color: #373737;" text="Add Package" textFill="WHITE">
+                        <TextField fx:id="tfPackageDescripion" layoutX="126.0" layoutY="76.0" prefHeight="25.0" prefWidth="402.0" />
+                        <TextField fx:id="tfPackageStartDate" layoutX="132.0" layoutY="166.0" prefHeight="25.0" prefWidth="101.0" />
+                        <TextField fx:id="tfPackageBasePrice" layoutX="126.0" layoutY="221.0" prefHeight="25.0" prefWidth="126.0" />
+                        <TextField fx:id="tfPackageName" layoutX="126.0" layoutY="28.0" prefHeight="25.0" prefWidth="149.0" />
+                        <TextField fx:id="tfTripTypeId" layoutX="126.0" layoutY="115.0" prefHeight="25.0" prefWidth="92.0" />
+                        <TextField fx:id="tfPackageEndDate" layoutX="433.0" layoutY="166.0" />
+                        <TextField fx:id="tfPackageAgencyCommission" layoutX="428.0" layoutY="221.0" />
+                        <Button fx:id="btnAddPackage" layoutX="132.0" layoutY="314.0" mnemonicParsing="false" onAction="#onActionBtnAddPackage" style="-fx-background-color: #373737;" text="Add Package" textFill="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <DatePicker fx:id="dpStartDate" layoutX="126.0" layoutY="120.0" onAction="#onActiondpStartDate" prefHeight="25.0" prefWidth="129.0" />
-                        <DatePicker fx:id="dpEndDate" layoutX="446.0" layoutY="120.0" onAction="#onActiondpEndDtae" prefHeight="25.0" prefWidth="156.0" />
-                        <Button fx:id="btnBack" layoutX="365.0" layoutY="228.0" mnemonicParsing="false" onAction="#onActionBtnBack" style="-fx-background-color: #373737;" text="Back to Package Details" textFill="WHITE">
+                        <DatePicker fx:id="dpStartDate" layoutX="126.0" layoutY="166.0" onAction="#onActiondpStartDate" prefHeight="25.0" prefWidth="129.0" />
+                        <DatePicker fx:id="dpEndDate" layoutX="432.0" layoutY="166.0" onAction="#onActiondpEndDtae" prefHeight="25.0" prefWidth="156.0" />
+                        <Button fx:id="btnBack" layoutX="343.0" layoutY="317.0" mnemonicParsing="false" onAction="#onActionBtnBack" style="-fx-background-color: #373737;" text="Back to Package Details" textFill="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>

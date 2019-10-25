@@ -124,7 +124,7 @@ public class BookingController {
         else
         {
             initialize();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Insertion successful", ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Successfully updated booking details", ButtonType.OK);
             alert.show();
         }
 
